@@ -1,0 +1,406 @@
+{{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- else -%}
+      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+    {%- endif -%}
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {% render 'icon-success' %}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {% render 'icon-error' %}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="original-contact-form-{{ section.id }}__heading-container">
+        <p>
+          {{ section.settings['form-head'] }}
+        </p>
+        <div class="original-contact-form-{{ section.id }}__heading-container-desc">
+          <span>
+            {{ section.settings['form-desc'] }}
+          </span>
+        </div>
+      </div>
+      <div class="original-contact-form-{{ section.id}}__input-container-group">
+        {% for originalForm in section.blocks %}
+          <style>
+            .original-contact-form-{{ section.id }}__input-container {
+              width: 100;
+              color: black;
+            }
+            .original-contact-form-{{ section.id }}__label {
+              display: block;
+              font-size: 15px;
+              display: flex;
+              align-items: center;
+            }
+            .original-contact-form-{{ section.id }}__label-inner {
+              width: 100%;
+              margin: 0;
+              font-size: 14px;
+            }
+            .original-contact-form-{{ section.id }}__input {
+                all: unset;
+                border: solid lightgray 0.5px;
+                border-radius: 4px;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                margin-top: 0.3rem;
+                font-size: 15px;
+                width: -webkit-fill-available;;
+                letter-spacing: 1.5px;
+            }
+            .original-contact-form-{{ section.id }}__input:focus {
+              outline: 1px solid blue;
+              outline-offset: 1px;
+            }
+            .original-contact-form-{{ section.id }}__flex-container {
+              display: flex;
+              align-items: center;
+              gap: 2rem;
+            }
+            .contact__button {
+              margin-top: 3rem;
+              width: 100%;
+              border-radius: 4px;
+              overflow: hidden;
+              box-shadow: 0px 0px 4px lightgray;
+            }
+            .contact__button button {
+               width: 100%;
+            }
+            .required {
+                display: inline-block;
+                background: #ff5a47;
+                padding: 0.2rem 0.5rem;
+                border-radius: 4px;
+                color: #fff;
+                scale: 0.9;
+                letter-spacing: 2px;
+                text-align: center;
+                width: 60px;
+                height: 30px;
+            }
+
+            .original-contact-form-{{ section.id }}__heading-container {
+              margin-bottom: 5rem;
+              color: black;
+            }
+
+            .original-contact-form-{{ section.id }}__heading-container-wrapper {
+
+            }
+            .original-contact-form-{{ section.id }}__heading-container p {
+              font-size: ;
+            }
+            .original-contact-form-{{ section.id }}__heading-container span {
+                font-size: 13px;
+                letter-spacing: 1px;
+                color: darkslategrey;
+            }
+            .original-contact-form-{{ section.id }}__input-container-group {
+                /* border: dashed 2px;
+                border-color: #262931;
+                padding: 1.5rem;
+                border-radius: 12px; */
+            }
+            .original-contact-form__heading-container-desc {
+               line-height: normal;
+            }
+            .custom-buttom {
+
+            }
+          </style>
+
+          {% if forloop.index0 == 0 %}
+            <div class="original-contact-form-{{ section.id }}__input-container" style="display: none;">
+              <label class="original-contact-form-{{ section.id }}__label">
+                <p class="original-contact-form-{{ section.id }}__label-inner">
+                  {{ section.settings['form-id'] }}
+                </p>
+              </label>
+              <input
+                class="original-contact-form-{{ section.id }}__input"
+                name="contact[{{ section.settings.form-id }}]"
+              >
+            </div>
+          {% endif %}
+          {% if originalForm.settings['form-type'] == 'select' %}
+            <div class="original-contact-form-{{ section.id }}__input-container">
+              <label class="original-contact-form-{{ section.id }}__label">
+                <p class="original-contact-form-{{ section.id }}__label-inner">
+                  {{ originalForm.settings.title }}
+                </p>
+                {% if originalForm.settings.required %}
+                  <span class="required">{{ section.settings['required-text'] }}</span>
+                {% endif %}
+              </label>
+              {% assign methods = originalForm.settings['select-options'] | split: '-' %}
+              <select
+                class="original-contact-form-{{ section.id }}__input"
+                name="contact[{{ originalForm.settings.title }}]"
+              >
+                {% for method in methods %}
+                  <option>{{ method }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          {% elsif originalForm.settings['form-type'] == 'textarea' %}
+            <div class="original-contact-form-{{ section.id }}__input-container">
+              <label class="original-contact-form-{{ section.id }}__label">
+                <p class="original-contact-form-{{ section.id }}__label-inner">
+                  {{ originalForm.settings.title }}
+                </p>
+                {% if originalForm.settings.required %}
+                  <span class="required">{{ section.settings['required-text'] }}</span>
+                {% endif %}
+              </label>
+
+              <textarea
+                class="original-contact-form-{{ section.id }}__input"
+                style="height: 120px;"
+                name="contact[{% if originalForm.settings.form-type == "email" %}email{% else %}{{ originalForm.settings.title }}{% endif %}]"
+                placeholder="{{ originalForm.settings.placeholder }}"
+                {% if originalForm.settings.required %}
+                  required
+                {% endif -%}
+              ></textarea>
+            </div>
+          {% else %}
+            <div class="original-contact-form-{{ section.id }}__input-container">
+              <label class="original-contact-form-{{ section.id }}__label">
+                <p class="original-contact-form-{{ section.id }}__label-inner">
+                  {{ originalForm.settings.title }}
+                </p>
+                {% if originalForm.settings.required %}
+                  <span class="required">{{ section.settings['required-text'] }}</span>
+                {% endif %}
+              </label>
+              <input
+                type="{{ originalForm.settings.form-type }}"
+                class="original-contact-form-{{ section.id }}__input"
+                name="contact[{% if originalForm.settings.form-type == "email"%}email{% else %}{{ originalForm.settings.title }}{% endif %}]"
+                placeholder="{{ originalForm.settings.placeholder }}"
+                {% if originalForm.settings.required %}
+                  required
+                {% endif %}
+              >
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="contact__button custom-button">
+        <button type="submit" class="button contact__button_full-size">
+          {{ 'templates.contact.form.send' | t }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "オリジナルフォーム",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "form-id",
+      "label": "フォームID",
+      "default": "新規お問い合わせ",
+      "info": "どのフォームからのメッセージか判別に使用します。"
+    },
+     {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "オリジナルフォーム",
+      "label": "Heading"
+    },
+     {
+      "type": "inline_richtext",
+      "id": "form-head",
+      "label": "フォーム　ヘッド",
+      "default": "以下のお問い合わせフォームからお問い合わせ内容をお問い合わせください。"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "form-desc",
+      "label": "フォーム　説明文",
+      "default": "お問い合わせから、1~2営業日以内にご返信させて頂きます。"
+    },
+    {
+      "type": "text",
+      "id": "required-text",
+      "default": "必須",
+      "label": "必須テキスト"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "original-form",
+      "name": "フォーム",
+      "limit": 20,
+      "settings": [
+        {
+          "type":"text",
+          "id": "title",
+          "label": "タイトル",
+          "default": "メールアドレス"
+        },
+        {
+          "type":"text",
+          "id": "placeholder",
+          "label": "入力補助",
+          "default": "sample@email.com"
+        },
+        {
+          "type": "select",
+          "id": "form-type",
+          "options": [
+              {
+                  "value": "text",
+                  "label": "テキスト"
+                },
+                {
+                  "value": "email",
+                  "label": "メールアドレス"
+                },
+                {
+                  "value": "phone",
+                  "label": "電話番号"
+                },
+                {
+                  "value": "number",
+                  "label": "数値"
+                },
+                {
+                  "value": "date",
+                  "label": "日時"
+                },
+                {
+                  "value": "textarea",
+                  "label": "テキストエリア"
+                },
+                {
+                  "value": "select",
+                  "label": "セレクトタグ"
+                }
+              ],
+          "label": "入力タイプ"
+        },
+        {
+          "type":"text",
+          "id": "select-options",
+          "label": "セレクト - オプション",
+          "default": "有り-無し",
+          "info": "オプションに設定したい文字を【-】で区切って連結して下さい。※入力タイプをセレクトタグにした場合の設定が有効になります。"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": false,
+          "label": "入力必須にする"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "オリジナルフォーム"
+    }
+  ]
+}
+{% endschema %}

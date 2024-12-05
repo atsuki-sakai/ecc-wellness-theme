@@ -1,0 +1,1008 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+
+<!-- FIX -  定期購入の商品とsamitaの割引商品の同時購入を制限している -->
+{% assign groupA = 'ECCスタッフ・役員,HT・幼推講師,外語講師,ECCスタッフ紹介,学園スタッフ,学園スタッフ紹介,ECC顧問'
+  | split: ','
+%}
+{% assign groupB = 'ECC役員紹介,HT紹介,幼推講師紹介,外語紹介,ECCジュニア生・生徒保護者,ECC（外語）受講生・生徒,ベストワンオーナー,アンバサダー,提携園'
+  | split: ','
+%}
+{% assign B2B = '取引先・既存代理店,ウノプリール,ウェルシアコクミン' | split: ',' %}
+
+{% assign is_valid_cart_item = true %}
+{% assign is_btob_cart = false %}
+{% assign has_subscription_item = false %}
+{% assign has_normal_item = false %}
+
+{% if customer %}
+  {% for tag in customer.tags %}
+    {% if groupA contains tag or groupB contains tag %}
+      {% for item in cart.items %}
+        {% if item.product.tags contains '定期購入' %}
+          {% assign has_subscription_item = true %}
+        {% else %}
+          {% assign has_normal_item = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_subscription_item and has_normal_item %}
+        {% assign is_valid_cart_item = false %}
+      {% else %}
+        {% assign is_valid_cart_item = true %}
+      {% endif %}
+    {% elsif B2B contains tag %}
+      {% assign is_btob_cart = true %}
+      {% for item in cart.items %}
+        {% if item.product.tags contains '定期購入' %}
+          {% assign has_subscription_item = true %}
+        {% else %}
+          {% assign has_normal_item = true %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<script>
+  const is_valid_cart_item = {{ is_valid_cart_item | json }};
+  const is_btob_cart = {{ is_btob_cart | json }};
+  const has_subscription_item = {{ has_subscription_item | json }};
+  const has_normal_item = {{ has_normal_item | json }}
+
+  console.log('is_valid_cart_item', is_valid_cart_item);
+  console.log('is_btob_cart', is_btob_cart);
+  console.log('has_subscription_item', has_subscription_item)
+  console.log('has_norma_item', has_normal_item)
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const buyButtons = document.getElementsByClassName('cart__ctas');
+    const buyButton = buyButtons[0].firstElementChild;
+    const dynamincButtons =  document.querySelector('.cart__dynamic-checkout-buttons');
+
+    // 特別顧客グループ ########################################
+    if (!is_valid_cart_item) {
+      buyButton.style.display = 'none';
+      dynamincButtons.style.display = 'none';
+
+      buyButtons[0].style.display = 'flex';
+      buyButtons[0].style.flexDirection = 'column';
+      buyButtons[0].style.gap = '1rem';
+
+      const errorMsg = document.createElement('div');
+      errorMsg.innerText = "定期購入と通常購入が混在しています。";
+      errorMsg.style.display = 'block';
+      errorMsg.style.color = 'red';
+      errorMsg.style.fontSize = '1.5rem';
+      buyButtons[0].appendChild(errorMsg);
+
+      const subErrorMsg = document.createElement('div');
+      subErrorMsg.innerText = "特別割引が適用される商品と定期購入商品の同時購入はできません。お手数ですが先に定期購入のみをご購入頂いてから、その後に特別割引が適用される商品をご購入ください。";
+      subErrorMsg.style.display = 'block';
+      subErrorMsg.style.color = 'gray';
+      subErrorMsg.style.fontSize = '1.4rem';
+      buyButtons[0].appendChild(subErrorMsg);
+
+      buyButtons[0].appendChild(errorMsg);
+      buyButtons[0].appendChild(subErrorMsg);
+    }
+
+    // B2Bアカウント ########################################
+    if (is_btob_cart && has_subscription_item) {
+
+        const formContainer = document.querySelector('.form-container');
+        document.getElementById('delivery-form').style.display = 'none';
+
+        const errorMsg = document.createElement('div');
+        errorMsg.innerText = "B2Bアカウントの決済方法は請求書払いのみとなりますので定期購入の商品の購入できません。";
+        errorMsg.style.display = 'block';
+        errorMsg.style.color = 'red';
+        errorMsg.style.fontSize = '1.4rem';
+        formContainer.appendChild(errorMsg);
+    }
+
+
+
+
+  });
+</script>
+
+{% comment %}
+  FIX - 1
+  Samitaの処理が終わるまでcheckoutボタンを押せなくする。
+  処理が終わるまでにChekoutボタンを押して決済ページに行くと割引が適応されないため。
+{% endcomment %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const checkForElement = () => {
+          const targetElement = document.querySelector('[samitaws-cart-subtotal-price]');
+
+          const buyButtons = document.getElementsByClassName('cart__ctas');
+          const buyButton = buyButtons[0].firstElementChild;
+
+          buyButton.innerText = "読み込み中...";
+          buyButton.style.pointerEvents = "none";
+          buyButton.style.cursor = "not-allowed";
+
+          if (targetElement) {
+
+              console.log('要素が見つかりました:', targetElement);
+              let previousValue = targetElement.getAttribute('samitaws-cart-subtotal-price');
+              console.log('初期値:', typeof previousValue);
+
+              // previousValueが存在しない場合、ボタンを表示
+              if (previousValue === "false") {
+                  buyButton.innerText = {{ 'sections.cart.checkout' | t | json }};
+                  buyButton.style.pointerEvents = "auto";
+                  buyButton.style.cursor = "pointer";
+              }
+
+              const observer = new MutationObserver(mutations => {
+                  mutations.forEach(mutation => {
+                      if (mutation.type === 'attributes' && mutation.attributeName === 'samitaws-cart-subtotal-price') {
+                          const newValue = targetElement.getAttribute('samitaws-cart-subtotal-price');
+                          if (newValue !== previousValue) {
+                              console.log('samitaws-cart-subtotal-priceが変更されました！');
+                              previousValue = newValue; // 新しい値を保存
+                              buyButton.innerText = {{ 'sections.cart.checkout' | t | json }};
+                              buyButton.style.pointerEvents = "auto";
+                              buyButton.style.cursor = "pointer";
+                          }
+                      }
+                  });
+              });
+
+              observer.observe(targetElement, {
+                  attributes: true // 属性の変更を監視
+              });
+          } else {
+              console.error('指定された要素が見つかりません');
+              setTimeout(checkForElement, 1000); // 1秒後に再チェック
+          }
+      };
+      checkForElement()
+  });
+</script>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  class="gradient color-{{ section.settings.color_scheme }}{% if cart == empty %} is-empty{% endif %}"
+  id="main-cart-footer"
+  data-id="{{ section.id }}"
+>
+  <div class="page-width">
+    <div class="cart__footer isolate section-{{ section.id }}-padding">
+      {%- if settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea
+            class="text-area field__input"
+            name="note"
+            form="cart"
+            id="Cart-note"
+            placeholder="{{ 'sections.cart.note' | t }}"
+          >{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'customer-content' -%}
+              <div>
+                <style>
+                  .custom-cart-section {
+                    width: 100%;
+                    margin: 0 auto;
+                    font-size: 1.6rem;
+                    padding: 2rem 0;
+                  }
+                  .custom-cart-header__title {
+                        margin-top: 3rem;
+                        margin-bottom: 1rem;
+                        font-size: 2rem;
+                        line-height: 1.2;
+                        color: #2c3e50;
+                        width: fit-content;
+                        letter-spacing: 2px;
+                        font-weight: bold;
+                  }
+                  .custom-cart-header__text {
+                    font-size: 1.4rem;
+                    line-height: 1.6;
+
+                    color: #34495e;
+                    margin-bottom: 2rem;
+                  }
+                  .custom-cart-section__inner {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                  }
+                  .custom-cart-section__inner-item {
+                    width: 100%;
+
+                  }
+                  .custom-cart-section__inner-item h3 {
+                    display: block;
+                    color: #2c3e50;
+                    margin-bottom: 1rem;
+                    font-size: 2rem;
+                  }
+
+                  .cbtn {
+                    font-size: 1.5rem;
+                    display: block;
+                    padding: 1rem 3rem;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    transition: all 0.3s ease;
+                    width: fit-content;
+                  }
+                  .cbtn-main {
+                    background-color: blue;
+                    color: white;
+                    border: none;
+                  }
+                  .cbtn-main:hover {
+                    background-color: #bdc3c7;
+                  }
+                  .cbtn-primary {
+                    background-color: gray;
+                    color: white;
+                    border: none;
+                  }
+                  .cbtn-primary:hover {
+                    background-color: #2980b9;
+                  }
+                  .cbtn-secondary {
+                    width: fit-content;
+                    background-color: green;
+                    color: white;
+                  }
+                  .cbtn-secondary:hover {
+                    background-color: #bdc3c7;
+                  }
+
+                  .c-helptext {
+                    margin: 1.4rem 0;
+                    font-size: 1.4rem;
+                    color: gray;
+                    display: inline-block;
+                    line-height: 2rem;
+                  }
+                </style>
+
+                <div class="custom-cart-section">
+                  <div class="custom-cart-header">
+                    {% unless customer %}
+                      <p class="custom-cart-header__text">{{ section.settings['header-desc'] }}</p>
+                    {% endunless %}
+                    <h4 class="custom-cart-header__title">{{ section.settings['purchase-text'] }}</h4>
+                  </div>
+                  <div class="custom-cart-section__inner">
+                    <div class="custom-cart-section__inner-item">
+                      {% if customer %}
+                        <h5 style="font-weight: bold; color: green; background: white; border: solid 1px green; border-radius: 999px; text-align: center; padding: 1rem 0;">
+                          {{ section.settings.logged -}}
+                        </h5>
+                      {% else %}
+                        <h3>{{ section.settings['member-customer'] }}</h3>
+                        <div class="mt-3">
+                          <a href="{{ routes.account_login_url }}?redirect_to=checkout" class="cbtn cbtn-main">
+                            {{- section.settings['login-text'] -}}
+                          </a>
+                          <p class="c-helptext">{{ section.settings['login-desc'] }}</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                    {% unless customer %}
+                      <div class="custom-cart-section__inner-item">
+                        <h3>{{ section.settings['register-text'] }}</h3>
+                        <a href="{{ routes.account_register_url }}?redirect_to=checkout" class="cbtn cbtn-secondary">
+                          {{- section.settings['membership-text'] -}}
+                        </a>
+                        <span class="c-helptext">{{ section.settings['membership-desc'] }}</span>
+                      </div>
+                    {% endunless %}
+                  </div>
+                </div>
+              </div>
+            {%- when 'subtotal' -%}
+              <div class="js-contents" {{ block.shopify_attributes }}>
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--position">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+
+                <div class="totals">
+                  <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
+                  <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
+                </div>
+
+                <small class="tax-note caption-large rte">
+                  {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                  {%- elsif cart.taxes_included -%}
+                    {{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}
+                  {%- elsif shop.shipping_policy.body != blank -%}
+                    {{ 'sections.cart.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+                  {%- else -%}
+                    {{ 'sections.cart.taxes_and_shipping_at_checkout' | t }}
+                  {%- endif -%}
+                </small>
+              </div>
+                          {% assign cartPrice = cart.total_price | divided_by: 100 %}
+              {% if cartPrice <= 2640 %}
+                {% if cart.total_price > 0 %}
+                  <div class="payment-notice">
+                    <div class="payment-notice__inner">
+                      <div class="payment-notice__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <line x1="12" y1="8" x2="12" y2="12"></line>
+                          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                      </div>
+                      <p class="payment-notice__text">
+                        【代引き】でお支払いの場合、次の決済ページで下記の料金が加算されます
+：ネコポス送料: 220円＋宅急便コレクト送料: 330円＋代引き手数料: 330円
+合計で追加料金は880円となります。
+                      </p>
+                    </div>
+                  </div>
+                  <style>
+                    .payment-notice__inner {
+                      display: flex;
+                      align-items: center;
+                      gap: 12px;
+                    }
+                
+                    .payment-notice__icon {
+                      flex-shrink: 0;
+                      color: red;
+                      animation: pulse 2s infinite;
+                    }
+                
+                    .payment-notice__text {
+                      margin: 0;
+                      font-size: 1.3rem;
+                      line-height: 1.5;
+                      color: red;
+                    }
+                
+                    @keyframes pulse {
+                      0% {
+                        transform: scale(1);
+                        opacity: 1;
+                      }
+                      50% {
+                        transform: scale(1.1);
+                        opacity: 0.8;
+                      }
+                      100% {
+                        transform: scale(1);
+                        opacity: 1;
+                      }
+                    }
+                
+                    @media (max-width: 768px) {
+                      .payment-notice {
+                        padding: 12px;
+                        margin: 16px 0;
+                      }
+                      
+                      .payment-notice__text {
+                        font-size: 0.9em;
+                      }
+                    }
+                  </style>
+                {% endif %}
+              {% endif %}
+            {% when 'free_shipping' %}
+              <!-- あと〇〇で送料無料 samitaの割引との併用はできない。一般会員のみ下書き注文のため -->
+              {% unless customer %}
+                <style>
+                  #shipping-message {
+                    display:none
+                    background-color: #ffffff;
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: #333;
+                    margin-top: 20px;
+                    border-top: solid red;
+                    border-bottom: solid red;
+                    color: red;
+                    letter-spacing: 1px;
+                  }
+                </style>
+
+                <script type="text/javascript" src="{{  'free-shipping-msg.js' | asset_url }}" defer></script>
+                <script>
+                  const waitSec = 2000;
+                  const borderPrice = {{ section.settings.border_price }};
+
+                  async function showShippingFreeMsg(waitSec) {
+                    const cart = {{ cart | json }};
+                    if (cart.items.length < 1) {
+                      return;
+                    }
+
+                    function getCurrencyCode() {
+                      return {{ cart.currency.iso_code | json }};
+                    }
+
+                    const exchangeRates = shouldFetchNewData() ? await fetchExchangeRates() : JSON.parse(localStorage.getItem('exchangeRates'));
+                    const isoCode = getCurrencyCode();
+                    const baseRate = getExchangeRate(exchangeRates, isoCode);
+
+                    if (!exchangeRates || !baseRate) {
+                      console.log("Could not retrieve exchange rates or base rate.");
+                      return;
+                    }
+
+                    setTimeout(function() {
+                      quantityListener();
+
+                      const freeShippingThreshold = calculateFreeShippingThreshold(baseRate, borderPrice);
+                      const totalValueElement = document.querySelector('.totals__total-value');
+                      const totalValueText = totalValueElement.innerText;
+                      const totalValueNumber = parseFloat(totalValueText.replace(/[^0-9.-]+/g, ""));
+                      const cartTotal = totalValueNumber;
+                      const amountUntilFreeShipping = calculateAmountUntilFreeShipping(freeShippingThreshold, cartTotal);
+                      displayShippingMessage(amountUntilFreeShipping, {{ cart.currency.symbol | json }}, {{ section.settings.for_free_text | json }}, {{ section.settings.free_text | json }});
+                    }, waitSec);
+                  }
+
+                  document.addEventListener('DOMContentLoaded', function() {
+                    showShippingFreeMsg(waitSec);
+                  });
+                </script>
+                <div id="shipping-message"></div>
+              {% endunless %}
+
+            {%- else -%}
+              <!-- CUSTOM -  卸販売用の購入ボタンを生成 -->
+              <!-- 配送指定は一旦停止 -->
+              {% if cart.item_count > 0
+                and customer.tags contains 'ウェルシアコクミン'
+                or customer.tags contains 'ウノプリール'
+                or customer.tags contains '取引先・既存代理店'
+              %}
+                {{ 'btob-checkout-btn.css' | asset_url | stylesheet_tag }}
+                <script type="text/javascript" src="{{ "btob-checkout-btn.js" | asset_url}}" defer></script>
+                <script>
+
+                  // ボタンを無効化する関数
+                  function disableCheckoutButton() {
+                    const b2bCheckoutBtn = document.querySelector('.b2b-checkout-btn') || document.querySelector('#checkout');
+                    
+                    if (b2bCheckoutBtn) {
+                      b2bCheckoutBtn.disabled = true;
+                      b2bCheckoutBtn.style.opacity = '0.5';
+                      b2bCheckoutBtn.style.cursor = 'not-allowed';
+                      
+                      // オプション: ボタンのテキストを変更
+                      const buttonText = b2bCheckoutBtn.querySelector('.button-text');
+                      if (buttonText) {
+                        buttonText.textContent = '処理中...';
+                      }
+                    } else {
+                      console.warn('Checkout button not found in the DOM');
+                    }
+                  }
+                  
+                  // ボタンを有効化する関数（必要な場合）
+                  function enableCheckoutButton() {
+                    const b2bCheckoutBtn = document.querySelector('.b2b-checkout-btn') || document.querySelector('#checkout');
+                    
+                    if (b2bCheckoutBtn) {
+                      b2bCheckoutBtn.disabled = false;
+                      b2bCheckoutBtn.style.opacity = '1';
+                      b2bCheckoutBtn.style.cursor = 'pointer';
+                      
+                      // オプション: ボタンのテキストを元に戻す
+                      const buttonText = b2bCheckoutBtn.querySelector('.button-text');
+                      if (buttonText) {
+                        buttonText.textContent = '請求書払いで注文';
+                      }
+                    }
+                  }
+
+                  
+                  // 監視の開始と結果の取得
+                  const finalOrder = observeCartItems();
+                  const cart = {{ cart | json }};
+                  const lineItems = cart.items;
+                  let updatedLineItems = [];
+                  const customerId = {{ customer.id }};
+                  const email = {{ customer.email | json }}
+                  const customerAddresses = {{ customer.addresses | json }}
+                  const defaultAddress = customerAddresses.find((address) => address.default === true);
+
+                  
+                  
+                  console.log("defaultAddress: ", defaultAddress)
+
+                  // finalOrderの準備ができるまで待機して実行する関数
+                  function waitForFinalOrder(maxAttempts = 10) {
+                    let attempts = 0;
+                    disableCheckoutButton()
+                    function checkAndUpdate() {
+                      // finalOrderに値が入っているか確認
+                      if (finalOrder && finalOrder.length > 0) {
+                        console.log('finalOrderの準備完了:', finalOrder);
+                        enableCheckoutButton()
+                        updatedLineItems = updateCartPrices(lineItems, finalOrder);
+                        console.log("updatedLineItems", updatedLineItems);
+
+                        const finalTotalPrice = updatedLineItems.map((item) => item.final_line_price).reduce((sum, price) => sum + price, 0);
+
+                        // 結果の表示（通常の表示形式に戻す）
+                        const formattedTotal = `${(finalTotalPrice / 100)}`;
+                        console.log('合計金額:¥', formattedTotal);
+                        
+                        const shippingPrice = parseInt(formattedTotal) < 10800 ? 550 : 0;
+                        
+                        const cartBlocks = document.querySelector('.cart__blocks');
+                        console.log('cartBlocks:', cartBlocks);
+                        
+                        if (cartBlocks) {
+                          // 新しい div 要素を作成
+                          const headerContainer = document.createElement('div');
+                          
+                          // スタイルを追加
+                          headerContainer.style.padding = '1rem';
+                          headerContainer.style.marginBottom = '1rem';
+                          headerContainer.style.backgroundColor = '#f9fafb';
+                          headerContainer.style.border = '1px solid #e5e7eb';
+                          headerContainer.style.borderRadius = '0.5rem';
+                          
+                          // 送料メッセージを設定
+                          if (shippingPrice > 0) {
+                            headerContainer.innerHTML = `
+                              <div style="color: #374151; font-size: 1.4rem;">
+                                <p>送料: ¥${shippingPrice.toLocaleString()}</p>
+                                <p style="color: #6b7280; font-size: 1.2rem; margin-top: 0.5rem;">
+                                  ¥10,800以上のご購入で送料無料になります。
+                                  あと¥${(10800 - parseInt(formattedTotal)).toLocaleString()}で送料無料です。
+                                </p>
+                              </div>
+                            `;
+                          } else {
+                            headerContainer.innerHTML = `
+                              <div style="color: #059669; font-size: 1.4rem;">
+                                <p>送料無料</p>
+                                <p style="font-size: 1.2rem; margin-top: 0.5rem;">
+                                  ご注文金額が¥10,800を超えているため、送料が無料になっています。
+                                </p>
+                              </div>
+                            `;
+                          }
+                        
+                          // カートの先頭に挿入
+                          if (cartBlocks.firstChild) {
+                            cartBlocks.insertBefore(headerContainer, cartBlocks.firstChild);
+                          } else {
+                            cartBlocks.appendChild(headerContainer);
+                          }
+                        }
+                                                
+                        
+                      } else {
+                        attempts++;
+                        if (attempts < maxAttempts) {
+                          console.log(`finalOrder待機中... (試行: ${attempts}/${maxAttempts})`);
+                          setTimeout(checkAndUpdate, 1000); // 1秒後に再試行
+                        } else {
+                          console.log('finalOrderの取得がタイムアウトしました');
+                          window.location.reload();
+                        }
+                      }
+                    }
+                  
+                    // 初回実行
+                    setTimeout(checkAndUpdate, 2000); // 初回は2秒待ってから開始
+                  }
+                  function updateCartPrices(lineItems, finalOrder) {
+                    return lineItems.map((item) => {
+                      const matchingFinalPrice = finalOrder.find((finalPrice) => 
+                        finalPrice.variantId === item.variant_id.toString()
+                      );
+                      console.log(finalOrder[0])
+                      console.log(item.variant_id.toString())
+                      console.log('match', matchingFinalPrice);
+                      if (matchingFinalPrice) {
+                        const priceNumber = parseInt(matchingFinalPrice.customizedPrice.replace(/[¥,]/g, '')) * 100;
+                        return {
+                          ...item,
+                          discounted_price: priceNumber,
+                          final_line_price: priceNumber * item.quantity,
+                          final_price: priceNumber,
+                          line_price: priceNumber * item.quantity,
+                          original_line_price: priceNumber * item.quantity,
+                          original_price: priceNumber,
+                          price: priceNumber
+                        };
+                      }
+                      return item;
+                    });
+                  }
+                  function observeCartItems() {
+                      const processedItems = new Set();
+                      let isProcessing = false;
+                      const finalOrder = [];
+                    
+                      function checkForCartItems() {
+                        const cartLineItems = document.getElementsByClassName('cart-item');
+                        
+                        if (cartLineItems.length === 0) {
+                          console.log('cartLineItemsはありません。再度チェックします...');
+                          setTimeout(checkForCartItems, 100);
+                          return;
+                        }
+                    
+                        const observer = new MutationObserver((mutations) => {
+                          if (isProcessing) return;
+                          isProcessing = true;
+                    
+                          try {
+                            const elements = document.querySelectorAll('[samitaws-product-id][samitaws-variant-id]');
+                            if (elements.length > 0) {
+                              console.log('対象の要素が見つかりました:');
+                              
+                              elements.forEach(element => {
+                                const productId = element.getAttribute('samitaws-product-id');
+                                const variantId = element.getAttribute('samitaws-variant-id');
+                                const itemKey = `${productId}-${variantId}`;
+                                
+                                if (!processedItems.has(itemKey)) {
+                                  processedItems.add(itemKey);
+                                  
+                                  // 価格情報の取得
+                                  const originalPrice = element.querySelector('.samitaWS-customized-original-price')?.textContent.trim() || '';
+                                  const customizedPrice = element.querySelector('.samitaWS-customized-price')?.textContent.trim() || '';
+                                  
+                                  // 商品情報をオブジェクトとして保存
+                                  const orderItem = {
+                                    productId,
+                                    variantId,
+                                    originalPrice,
+                                    customizedPrice
+                                  };
+                                  
+                                  finalOrder.push(orderItem);
+                                  
+                                  console.log('商品情報:', orderItem);
+                                }
+                              });
+                    
+                              console.log('最終的な注文リスト:', finalOrder);
+                              observer.disconnect();
+                            }
+                          } finally {
+                            isProcessing = false;
+                          }
+                        });
+                    
+                        const config = {
+                          childList: true,
+                          subtree: true
+                        };
+                    
+                        Array.from(cartLineItems).forEach(item => {
+                          observer.observe(item, config);
+                        });
+                      }
+                    
+                      // 初回チェックの実行
+                      checkForCartItems();
+                      
+                      // finalOrderを外部から参照できるようにする
+                      return finalOrder;
+                    }
+                  // 実行
+                  waitForFinalOrder();
+
+                  document.addEventListener('DOMContentLoaded', () => {
+
+                    const checkoutBtn = document.getElementById('checkout');
+                    checkoutBtn.addEventListener('click', () => {
+                      console.log('click')
+                    const finalTotalPrice = updatedLineItems.map((item) => item.final_line_price).reduce((sum, price) => sum + price, 0);
+
+                    // 結果の表示（通常の表示形式に戻す）
+                    const formattedTotal = `${(finalTotalPrice / 100)}`;
+                    console.log('合計金額:¥', formattedTotal);
+                    const shippingLine = {
+                      title: "西濃運輸",
+                      price: parseInt(formattedTotal) < 10800 ? 550 : 0
+                    }
+
+                    const body = {
+                      customerId: "gid://shopify/Customer/" + customerId,
+                      email: email,
+                      taxExempt: true,
+                      shippingLine: shippingLine,
+                      shippingAddress: defaultAddress,
+                      billingAddress: defaultAddress,
+                      lineItems: updatedLineItems
+                    }
+
+                    console.log("body: ", body)
+                    createBtobOrder(body)
+                    })
+                  });
+                </script>
+
+                <div>
+                  {% if customer.default_address %}
+                    <div class="default-address">
+                      <h2>配送先のご住所</h2>
+                      <p class="name">
+                        {{ customer.default_address.last_name }}
+                        {{ customer.default_address.first_name }}様
+                      </p>
+                      {% if customer.default_address.company != blank %}
+                        <p class="company">{{ customer.default_address.company }}</p>
+                      {% endif %}
+                      <p>〒 : {{ customer.default_address.zip }}</p>
+                      <p>
+                        {{ customer.default_address.province -}}
+                        {{- customer.default_address.city }}
+                        {{ customer.default_address.address1 }}
+                      </p>
+                      {% if customer.default_address.address2 != blank %}
+                        <p>{{ customer.default_address.address2 }}</p>
+                      {% endif %}
+                      <p>TEL : {{ customer.default_address.phone }}</p>
+                    </div>
+                  {% else %}
+                    <p class="no-address">デフォルトの住所が設定されていません。</p>
+                  {% endif %}
+                </div>
+                <div class="form-container">
+                  <form id="delivery-form">
+                    <input type="hidden" id="customer_id" value="{{ customer.id }}">
+                    <div class="btob-help-msg">
+                      <a href="https://ecc-wellness.com/account/addresses">こちらから配送住所を変更可能です。</a>
+                      <span> 配送先に指定したいご住所をデフォルトに設定してご注文下さい。 </span>
+                    </div>
+                    <button type="button" id="checkout" class="btn b2b-checkout-btn">
+                      <span class="spinner" style="display: none;"></span>
+                      <span class="button-text">請求書払いで注文</span>
+                    </button>
+                  </form>
+                </div>
+              {% endif %}
+              {% assign showB2Bform = false %}
+              {% if cart.item_count > 0
+                and customer.tags contains 'ウェルシアコクミン'
+                or customer.tags contains 'ウノプリール'
+                or customer.tags contains '取引先・既存代理店'
+              %}
+                {% assign showB2Bform = true %}
+              {% endif %}
+
+              <div
+                class="cart__ctas"
+                {{ block.shopify_attributes }}
+              >
+                <button
+                  type="submit"
+                  {% if showB2Bform %}
+                    style="display: none;"
+                  {% endif %}
+                  id="checkout"
+                  class="cart__checkout-button button"
+                  name="checkout"
+                  {% if cart == empty %}
+                    disabled
+                  {% endif %}
+                  form="cart"
+                >
+                  {{ 'sections.cart.checkout' | t }}
+                </button>
+              </div>
+
+            
+              {%- if additional_checkout_buttons -%}
+                <div
+                  {% if showB2Bform %}
+                    style="display: none;"
+                  {% endif %}
+                  class="cart__dynamic-checkout-buttons additional-checkout-buttons"
+                >
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+        <div id="cart-errors"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-cart-footer.name",
+  "class": "cart__footer-wrapper",
+  "settings": [
+    {
+      "type": "html",
+      "id": "header-desc",
+      "label": "カスタムフッターディスクリプション",
+      "default": "<p>発送の遅延について多くのご注文を頂いており、順次発送を進めていますが、発送スケジュールに遅れが生じており、配達までお時間を頂いております。ご不便をおかけしますが、ご理解賜りますようお願い申し上げます。ご注文内容が決まりましたら、購入手続きへお進みください。送料と手数料は、配送先住所と支払方法を入力後の確認画面でご確認ください。</p>"
+    },
+    {
+      "type": "text",
+      "id": "purchase-text",
+      "label": "購入手続き",
+      "default": "購入手続き"
+    },
+    {
+      "type": "text",
+      "id": "member-customer",
+      "label": "会員のお客様",
+      "default": "会員のお客様"
+    },
+    {
+      "type": "text",
+      "id": "logged",
+      "label": "ログイン中テキスト",
+      "default": "ログイン中です"
+    },
+    {
+      "type": "text",
+      "id": "checkout",
+      "label": "チェックアウト",
+      "default": "チェックアウト"
+    },
+    {
+      "type": "text",
+      "id": "login-desc",
+      "label": "ログイン説明",
+      "default": "既に会員登録されている方は、こちらからログインできます。"
+    },
+    {
+      "type": "text",
+      "id": "login-text",
+      "label": "ログイン",
+      "default": "ログイン"
+    },
+    {
+      "type": "text",
+      "id": "register-text",
+      "label": "登録説明",
+      "default": "会員登録されていないお客様"
+    },
+    {
+      "type": "text",
+      "id": "membership-text",
+      "label": "会員登録",
+      "default": "会員登録を行う"
+    },
+    {
+      "type": "text",
+      "id": "or-text",
+      "label": "または",
+      "default": "または"
+    },
+    {
+      "type": "text",
+      "id": "not-membership-checkout-text",
+      "label": "非会員チェックアウト説明",
+      "default": "会員登録せずにチェックアウトする"
+    },
+    {
+      "type": "text",
+      "id": "membership-desc",
+      "label": "会員登録説明",
+      "default": "会員登録を行うと、配送先住所などの情報を自動的に入力でき、便利にお買い物いただけます。"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+        "type": "range",
+        "id": "border_price",
+        "default": 2000,
+        "min": 50,
+        "max": 5000,
+        "step": 50,
+        "unit": "0円",
+        "label": "FreeShippingPrice"
+      },
+       {
+        "type": "text",
+        "id": "for_free_text",
+        "default": "送料無料まであと",
+        "label": "送料無料まであと〜"
+      },{
+           "type": "text",
+        "id": "free_text",
+        "default": "送料無料！",
+        "label": "送料無料"
+      },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "t:sections.main-cart-footer.blocks.subtotal.name",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "t:sections.main-cart-footer.blocks.buttons.name",
+      "limit": 1
+    },
+     {
+      "type": "customer-content",
+      "name": "カスタムフォーム",
+      "limit": 1
+    },
+    {
+      "type": "free_shipping",
+      "name": "送料無料",
+      "limit": 1
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

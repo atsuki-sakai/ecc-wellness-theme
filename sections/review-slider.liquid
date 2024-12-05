@@ -1,0 +1,158 @@
+<div class="tw-bg-gradient-to-b tw-from-white tw-to-orange-50">
+  <div class="tw-mx-auto tw-max-w-[1100px] tw-px-10 tw-py-16 sm:tw-px-6 sm:tw-py-24 lg:tw-px-8">
+    <h2 class="tw-w-fit tw-text-5xl tw-font-bold tw-text-gray-900 tw-border-b tw-border-orange-400 tw-pb-2">
+      {{ section.settings.heading }}
+    </h2>
+    <span class="tw-text-2xl tw-text-gray-500 ">・{{ section.settings.subheading }}</span>
+    <div class="tw-grid tw-grid-cols-2 tw-gap-12 tw-mt-6 tw-space-y-10  tw-divide-gray-200 tw-border-gray-200 tw-pb-10">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.product.url }}" class="tw-no-underline">
+          <div class="tw-pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8 tw-border-b tw-pb-4 tw-border-gray-200">
+            <div class="lg:col-span-8 lg:col-start-5 xl:col-span-9 xl:col-start-4 xl:grid xl:grid-cols-3 xl:items-start xl:gap-x-8">
+              <div class="tw-flex tw-items-center tw-justify-center">
+                {% if block.settings.customer_avator %}
+                  <img
+                    src="{{ block.settings.customer_avator | image_url }}"
+                    alt="{{ block.settings.customer_name }}"
+                    width="180"
+                    height="180"
+                  >
+                {% else %}
+                  <img
+                    src="{{ product.images[0].src | image_url }}"
+                    alt="{{ block.settings.customer_name }}"
+                    width="180"
+                    height="180"
+                  >
+                {% endif %}
+              </div>
+              <div class="tw-mt-4 lg:mt-6 xl:col-span-2 xl:mt-0">
+                <h3
+                  class="tw-text-2xl md:tw-text-3xl tw-font-bold tw-text-gray-900 "
+                >
+                  {{ block.settings.product.title }}
+                </h3>
+                <div class="tw-flex tw-items-center xl:col-span-1">
+                  <div class="tw-flex tw-items-center">
+                    <div class="tw-text-yellow-400">
+                      {% assign rating = block.settings.rating %}
+                      {% for i in (1..5) %}
+                        {% if i <= rating %}
+                          <span class="star">★</span>
+                        {% else %}
+                          <span class="star">☆</span>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                <p class="tw-text-lg tw-text-gray-700">
+                  <span class=""
+                    >out of <strong>{{ rating }}</strong> stars</span
+                  >
+                </p>
+                <div class="tw-mt-3 tw-space-y-6 tw-text-xl md:tw-text-2xl tw-text-gray-500">
+                  <p>{{ block.settings.review }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="tw-mt-6 tw-flex tw-items-center tw-text-xl lg:col-span-4 lg:col-start-1 lg:row-start-1 lg:mt-0 lg:flex-col lg:items-start xl:col-span-3">
+              <p class="tw-font-medium tw-text-2xl tw-text-gray-900">{{ block.settings.customer_name }}</p>
+              {% comment %} <time datetime="2021-01-06" class="tw-ml-4 tw-border-l tw-border-gray-200 tw-pl-4 tw-text-gray-500 lg:ml-0 lg:mt-2 lg:border-0 lg:pl-0">{{ block.settings.review_date }}</time> {% endcomment %}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Review",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "タイトル",
+      "default": "PICKUP REVIEW"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "サブタイトル",
+      "default": "ピックアップレビュー"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "customer_avator",
+          "label": "商品画像"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "商品"
+        },
+        {
+          "type": "text",
+            "id": "customer_name",
+          "label": "顧客名"},
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "評価",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "レビュー"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Review"
+    }
+  ]
+}
+{% endschema %}

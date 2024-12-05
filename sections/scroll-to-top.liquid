@@ -1,0 +1,82 @@
+<style>
+  .floating-button {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    transition: opacity 0.3s ease
+    , transform 0.3s ease;
+  }
+  .floating-button button {
+    all: unset;
+    border-top-right-radius: 8px;
+    overflow: hidden;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    background-color: {{ section.settings.button_color }};
+    color: #fff;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    --shadow-horizontal-offset: none;
+    --shadow-vertical-offset: none;
+    --shadow-blur-radius: none;
+    --shadow-opacity: none;
+    --shadow-visible: none;
+    --border-offset: none;
+    --border-opacity: none;
+  }
+  .floating-button.visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0%);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const floatingButton = document.querySelector('.floating-button');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY >= window.innerHeight * 2) {
+        floatingButton.classList.add('visible');
+      } else {
+        floatingButton.classList.remove('visible');
+      }
+    });
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<div class="floating-button">
+  <button onclick="scrollToTop()" class="button">{{ section.settings.button_text }}</button>
+</div>
+{% schema %}
+  {
+    "name": "Scroll To Top",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "button_color",
+        "default": "#1E49C8",
+        "label": "ボタン色"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "ボタンテキスト",
+        "label": "トップに戻る"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Scroll To Top",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,627 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_GKq8zY": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_8L9cmx": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "go_sub_subscription_gosub_product_block_KnArJ6": {
+          "type": "shopify:\/\/apps\/go-sub-subscription\/blocks\/gosub-product-block\/87efaa1b-acee-458e-9de2-d43423c133fa",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_GKq8zY",
+        "price_8L9cmx",
+        "variant_picker",
+        "quantity_selector",
+        "go_sub_subscription_gosub_product_block_KnArJ6",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "1728538678402ca2d7": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_arTmC3": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_arTmC3"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_collection_rTfBfa": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "feature-collections",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_YKPrJi": {
+      "type": "rich-text",
+      "blocks": {
+        "text_HBwLDE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ECCは、長年にわたり九州工業大学と豚や魚から採るエラスチンという成分を人工皮膚や人工血管にするための再生医療研究を続けており、これを飲むサプリメントが好評を得て参りました。この度、同大学の研究により、前述のエラスチンが“飲む”だけでなくお肌に“塗る”ことによっても保湿と美白効果がもたらされたというデータを踏まえ、化粧品素材として開発、オールインワンゲル「ELARA100（えららひゃく）オールインワンゲル」を製品化いたしました。<br\/><br\/>オールインワンゲルですので、化粧水、美容液、乳液、クリームの役割をこちら一つで果たします。特許製法により、低分子エラスチンがお肌をしっかり保湿、高分子エラスチンがお肌を水分蒸発や光老化から守る“本当にこれ一つで良いオールインワンゲル”として好評を得ております。また、アルコール、パラベン、シリコーン、合成香料などお肌に刺激のあるものを使わず、敏感肌にも対応しております。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_HBwLDE"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "banner_VJkbdj": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "https:\/\/www.instagram.com\/ecc_wellness\/",
+        "sp-banner-jp": "shopify:\/\/shop_images\/ELARA100banner1.jpg",
+        "pc-banner-jp": "shopify:\/\/shop_images\/ELARA100banner1.jpg",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_UXPwzd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_F4iRaW": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>研究の中で見つかった化粧品としての素材 <\/strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_F4iRaW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_with_text_HLpemh": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_UW76PB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ECCが国立大学の九州工業大学と共同研究してきたエラスチン。実は、保湿にも良いということが判明し、化粧品として製品化することとなりました。※エラスチン（保湿剤として）低分子のエラスチンがお肌に浸透※し、高分子のエラスチンがフタをすることで、お肌の潤いを保つのです。※角質層角質層は、約10～20ほどの層からなる皮膚のもっとも外の部分です。トラブルのない時は、しっかりと水分を含み、見た目に美しい肌へ大きく貢献しています。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_UW76PB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hada_elara_2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_mjJHV3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_nV4dNP": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>女性が多いＥＣＣだからこそ、その声を大切に。<\/strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nV4dNP"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_thpNPV": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_x8jMHy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ちゃんと潤っているっていう感触がありました。なのに、ベタベタしないのが良いなって思いました。私は、夜ボリューム感のあるクリームを使っているのですが、それと変わらないくらいしっかり潤ってる感じがします。 乾燥は女性にとってオールシーズン気になるものだから、適切に保湿できるっていうのは、良いなって思います。 （総務部 勤務）<br\/><\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_x8jMHy"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/nagano_2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_f4dEQY": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_97GPPa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>さらさら感なのに、しっとりみたいな。特に気になるところに塗ってからお化粧すると、良いって感じました。さわり心地もオールインワンにありがちなベタベタ感がそんなになく、すぐに家事育児にパッといけて、時短になるのが助かります。 バタバタしながら、一から基礎化粧品ってたいへんじゃないですか。これだったら使えるって思いました！（外語学院 勤務）<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_97GPPa"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/shimizu_2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_7AnnqR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mpNhnf": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>お肌にうれしい保湿成分をたっぷり配合 　<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_xVB3Rw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>実は、エラスチンだけではなく、お肌にうれしい保湿成分をこんなに含んでいるのです。☑　ヒアルロン酸Na☑　ツバキ葉エキス☑　ダマスクバラ花油☑　ダイズ種子エキス<\/p><p><\/p><p>ダマスクバラ花油は自然の香料としても人気です。気づくか気づかないかというくらいの、やさしい香りにもこだわりました。<\/p><p><strong>　　<\/strong><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mpNhnf",
+        "text_xVB3Rw"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_ygpwTG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xYhm9L": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>お肌のタイプ別　おすすめ使用方法<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_MrBRtP": {
+          "type": "text",
+          "settings": {
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_xYhm9L",
+        "text_MrBRtP"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 32
+      }
+    },
+    "image_with_text_qKtzBL": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_BWTF9h": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>化粧水はさっぱりタイプが好き。日中おでこやあごに皮脂がでてくるタイプ。<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_YNzxbr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>洗顔後、パール２粒分を両手のひらに伸ばし、両頬に内側から伸ばす。<br\/>そのあと、おでこ、こめかみ、あごに伸ばしつける。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BWTF9h",
+        "text_YNzxbr"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/type1.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_WHVa8C": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_yz86r9": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>夏と冬で基礎化粧品を使い分ける。気候の変化などの影響を受けやすい混合肌タイプ。<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_q46B78": {
+          "type": "text",
+          "settings": {
+            "text": "<p>洗顔後、夏はパール２粒分、冬はパール３粒分を少しずつ、目の周り、頬、口の周り、あご、おでこの順で優しく塗り広げる。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yz86r9",
+        "text_q46B78"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/type2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_TMUQVU": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jDiqHU": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>化粧水はとろみのある高保湿タイプが好き。夏でも部分的に乾燥が気になるタイプ。<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_wTnfLD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>洗顔後、パール１粒分を手にとり、目の周りとほうれい線に塗り広げる。 再度パール１粒分を頬に、さらにパール１粒分をこめかみ、あご、おでこに伸ばす。 そのあと顔全体を優しくハンドプレスする。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jDiqHU",
+        "text_wTnfLD"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/type3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_kw7U66": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jYeDB4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>とにかく敏感！基礎化粧品はよく選ばないと肌荒れを起こしやすいタイプ。<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_tKCCGC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>初日～２日目は、お手持ちの化粧水や乳液の後、パール１粒分を目立ちにくい首筋に塗って様子を見る。お肌に違和感がなければ、３日目以降はお手持ちの化粧水、乳液などの後、パール２粒分を顔全体に少しずつパッティングしながら塗り、最後に手のひらで覆ってなじませる。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jYeDB4",
+        "text_tKCCGC"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/type4.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_xVNgxN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_KGTD3r": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>ELARA100」開発うら話<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_qWwDUC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>女性はとにかく忙しい、と思っています。私も、娘が生まれてから一緒にお風呂に入っている頃までは、自分のお肌の手入れなんて、じっくり考えることすらありませんでした。今はもう高校生になり手が離れてようやく自分の時間を少し持てるようになりましたが、それでも仕事をしていると、やっぱりのんびりできる時間は少ないと思います。そんな飛ぶように過ぎる時間の流れとともに、お肌は確実にエイジングしているのを、時々ふと気づき、ドキッとしています。そんな中、健康食品事業展開当初から九州工業大学との研究素材である「エラスチン」が化粧品素材としての有用性を持つことが明らかになったことを受け、エラスチンを化粧品として開発しようとなりました。当初はこのエラスチンを使った?化粧水、?美容液、?乳液、?クリームをつくる、という案も出ていましたが、私自身が使いたいのはそれじゃないと思い、「忙しい女性のお肌に手短に良い素材を与えてあげられたら…」、そのような願いをもってこのエラスチンを「オールインワンゲル」にすることにしました。そこからは、化粧品について調べまくりました。もともとコスメが好きだったこともあり、さまざまなオールインワンゲルを片っ端から使いました。そして、この「ELARA100」をどうしたいかを日々考え、「本当にこれ一つで良い保湿感」「それでいて浸透し、よくなじんで、スムーズにメイクに移れる使用感」「香料や刺激のある防腐剤などいらないものは入れない」といったことに、とことんこだわり何度も試作をやり直しました。そうして、エラスチンの特性である、低分子のエラスチンが内部をしっかり保湿、高分子のエラスチンがなじみの良さをつくりお肌の潤いを守る、という「ELARA100」ができました。女性のシンプルかつ中身の濃いお手入れにお役に立てましたら幸いです。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_KGTD3r",
+        "text_qWwDUC"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/kaihatsutanto.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_Ey8zJH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6wmtTD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>開発担当　向井<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_yLJ33q": {
+          "type": "text",
+          "settings": {
+            "text": "<p>開発中に多くのことを学び、化粧品検定1級を取得。「ELARA100」の開発を通して、「手をかければお肌は応えくれる」ことを実感。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6wmtTD",
+        "text_yLJ33q"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "hidden_judge_me_reviews_FhhfpU": {
+      "type": "hidden-judge-me-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hidden_judge_me_reviews_FhhfpU",
+    "main",
+    "1728538678402ca2d7",
+    "featured_collection_rTfBfa",
+    "related-products",
+    "rich_text_YKPrJi",
+    "banner_VJkbdj",
+    "rich_text_UXPwzd",
+    "image_with_text_HLpemh",
+    "rich_text_mjJHV3",
+    "image_with_text_thpNPV",
+    "image_with_text_f4dEQY",
+    "rich_text_7AnnqR",
+    "rich_text_ygpwTG",
+    "image_with_text_qKtzBL",
+    "image_with_text_WHVa8C",
+    "image_with_text_TMUQVU",
+    "image_with_text_kw7U66",
+    "image_with_text_xVNgxN",
+    "rich_text_Ey8zJH"
+  ]
+}

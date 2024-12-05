@@ -1,0 +1,32 @@
+
+
+<div class="tw-fixed tw-bottom-4 tw-left-1/2 tw-z-50 tw-w-full tw-max-w-md tw-duration-1000 tw-ease-in-out">
+    <a href="{{ section.settings.link }}" class="tw-block tw-w-fit tw-rounded-md tw-overflow-hidden tw-shadow-lg -tw-translate-x-1/2">
+       <img src="{{ section.settings.image | image_url: width: 350 }}" alt="カートアイコン" width="250px" height="100px">
+    </a>
+</div>  
+
+
+{% schema %}
+{
+    "name": "Floating Button",
+    "settings": [
+        {
+            "type": "url",
+            "id": "link",
+            "label": "リンク"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "画像"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Floating Button"
+        }
+    ]
+}
+
+{% endschema %}

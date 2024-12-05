@@ -1,0 +1,187 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_hUTW9p": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_fzzHtD": {
+          "type": "heading",
+          "settings": {
+            "heading": "会社概要",
+            "heading_size": "h0"
+          }
+        },
+        "text_gC9RWR": {
+          "type": "text",
+          "settings": {
+            "text": "about us",
+            "text_style": "caption-with-letter-spacing"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fzzHtD",
+        "text_gC9RWR"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/about-us_3.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "campany_details_Fax6kc": {
+      "type": "campany-details",
+      "blocks": {
+        "section_ez3EhM": {
+          "type": "section",
+          "settings": {
+            "section_title": "ショップ名",
+            "section_value": "ECCウェルネス"
+          }
+        },
+        "section_bDbex4": {
+          "type": "section",
+          "settings": {
+            "section_title": "販売事業者",
+            "section_value": "株式会社ECC"
+          }
+        },
+        "section_tTVhT4": {
+          "type": "section",
+          "settings": {
+            "section_title": "販売責任者",
+            "section_value": "花房　雅博"
+          }
+        },
+        "section_ajYNGe": {
+          "type": "section",
+          "settings": {
+            "section_title": "所在地",
+            "section_value": "530-0044 大阪府 大阪市北区 東天満 1-10-20 ECC本社ビル4F"
+          }
+        },
+        "section_Xf3Gf3": {
+          "type": "section",
+          "settings": {
+            "section_title": "電話番号",
+            "section_value": "0120-144-270"
+          }
+        },
+        "section_ALtx9t": {
+          "type": "section",
+          "settings": {
+            "section_title": "FAX番号",
+            "section_value": "06-6352-0161"
+          }
+        },
+        "section_Uya4Qr": {
+          "type": "section",
+          "settings": {
+            "section_title": "メールアドレス",
+            "section_value": "shopmaster@ecc-propolis.com"
+          }
+        },
+        "section_X9PebR": {
+          "type": "section",
+          "settings": {
+            "section_title": "ホームページ",
+            "section_value": "https:\/\/ecc-propolis.com\/"
+          }
+        },
+        "section_Ha864E": {
+          "type": "section",
+          "settings": {
+            "section_title": "取扱商品",
+            "section_value": "健康食品、プロポリス、マイタケエキスMDフラクション、エラスチンサプリメント、化粧品、オールインワンゲル※効果効能に関しては「個人の意見」のため、保障いたしません。"
+          }
+        }
+      },
+      "block_order": [
+        "section_ez3EhM",
+        "section_bDbex4",
+        "section_tTVhT4",
+        "section_ajYNGe",
+        "section_Xf3Gf3",
+        "section_ALtx9t",
+        "section_Uya4Qr",
+        "section_X9PebR",
+        "section_Ha864E"
+      ],
+      "settings": {
+        "title": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_MJiVpC": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_RU7ejY": {
+          "type": "heading",
+          "settings": {
+            "heading": "お問い合わせはこちらから",
+            "heading_size": "h2"
+          }
+        },
+        "text_zHdgyH": {
+          "type": "text",
+          "settings": {
+            "text": "弊社に関する質問、　商品についての質問などお問い合わせなどご不明点がございましたらお気軽にご質問下さい。",
+            "text_style": "body"
+          }
+        },
+        "buttons_TiyytB": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "お問い合わせはこちら",
+            "button_link_1": "shopify:\/\/pages\/contact",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RU7ejY",
+        "text_zHdgyH",
+        "buttons_TiyytB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3914150_m.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_hUTW9p",
+    "campany_details_Fax6kc",
+    "image_banner_MJiVpC"
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_gydjap": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Nrq46P": {
+          "type": "heading",
+          "settings": {
+            "heading": "お問い合わせ",
+            "heading_size": "h1"
+          }
+        },
+        "text_MFtXWB": {
+          "type": "text",
+          "settings": {
+            "text": "contact",
+            "text_style": "caption-with-letter-spacing"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Nrq46P",
+        "text_MFtXWB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/30183430_m.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text_Qq3wnd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tVcfyw": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>カスタマーサービスセンター<\/strong>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tVcfyw"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_LjDfMX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9EiLB3": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>0120-144-270<\/strong>",
+            "heading_size": "h0"
+          }
+        },
+        "text_Cgctpq": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>受付時間 ： 平日10：00～18：00 <br\/>※土日祝、年末年始を除く<\/em><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9EiLB3",
+        "text_Cgctpq"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "original_form_Ph3Ebx": {
+      "type": "original-form",
+      "blocks": {
+        "original_form_PXhttp": {
+          "type": "original-form",
+          "settings": {
+            "title": "お名前",
+            "placeholder": "山田 太郎",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_NhVJmf": {
+          "type": "original-form",
+          "settings": {
+            "title": "メールアドレス",
+            "placeholder": "sample@email.com",
+            "form-type": "email",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_M38Brh": {
+          "type": "original-form",
+          "settings": {
+            "title": "電話番号",
+            "placeholder": "090-1234-5678",
+            "form-type": "phone",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_rCjyJ6": {
+          "type": "original-form",
+          "settings": {
+            "title": "問い合わせ項目",
+            "placeholder": "sample@email.com",
+            "form-type": "select",
+            "select-options": "指定無し-商品について-卸販売について-返品について-その他",
+            "required": false
+          }
+        },
+        "original_form_Ar8tz6": {
+          "type": "original-form",
+          "settings": {
+            "title": "問い合わせ内容",
+            "placeholder": "例:〇〇の入荷時期を知りたいです。",
+            "form-type": "textarea",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "original_form_PXhttp",
+        "original_form_NhVJmf",
+        "original_form_M38Brh",
+        "original_form_rCjyJ6",
+        "original_form_Ar8tz6"
+      ],
+      "settings": {
+        "form-id": "新規お問い合わせ",
+        "heading": "お問い合わせ",
+        "form-head": "以下のお問い合わせフォームからお問い合わせください。",
+        "form-desc": "通常の場合、お問い合わせから1~3営業日以内にご返信させて頂きます。",
+        "required-text": "必須",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_gydjap",
+    "rich_text_Qq3wnd",
+    "rich_text_LjDfMX",
+    "original_form_Ph3Ebx"
+  ]
+}

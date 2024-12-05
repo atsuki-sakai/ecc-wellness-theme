@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_H4H6iY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_C8qKqC": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>ECCウェルネスの想い<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_JpTpWN": {
+          "type": "text",
+          "settings": {
+            "text": "vision",
+            "text_style": "caption-with-letter-spacing"
+          }
+        }
+      },
+      "block_order": [
+        "heading_C8qKqC",
+        "text_JpTpWN"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/29965160_m.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "image_with_text_V3GmmP": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_fChMN8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ECCは、1962年の創立以来、語学教育にとどまらず、「戦争・病気・貧困の三大苦をなくす」という理念の下、様々な活動を続けております。<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_fChMN8"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/167430_m.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "overlap",
+        "section_color_scheme": "",
+        "color_scheme": "scheme-2",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_hYW9H3": {
+      "type": "rich-text",
+      "blocks": {
+        "text_gtD84V": {
+          "type": "text",
+          "settings": {
+            "text": "<p>その中で、昭和後期、私の実兄であるECCの創業者が病気になり、さらに同時期、会社が成長し、教室数が拡大すればするほど、全国の大切な先生や従業員の中から、体調不良によって教室運営や業務に支障を来す連絡を耳にすることが増えたことが私にとって心痛の極みでした。<\/p><p><br\/>そうして、先生や従業員、ECCを通じてご縁をいただく全ての方に、<\/p><p>健康で長く輝いてほしい、三大苦の一つの「病気」に負けない体づくりを応援させていただきたい、という思いで2009年より開始したのがECCのウェルネス事業です。<\/p><p><\/p><p>ECCの先生を始め、現代人は大変忙しいです。そんな忙しい現代人の美容と健康を少しでもお支えすることができればと考え、「真によいものを少しでも手に取りやすく」ということに拘り、製造、ご提供しております。よろしければ皆さまと大切な方のお体にお役立てください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_gtD84V"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_8kz3Va": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dptwcx": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>株式会社ECC代表<\/strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_XNNaqD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>取締役会長 山口 勝美<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dptwcx",
+        "text_XNNaqD"
+      ],
+      "settings": {
+        "desktop_content_position": "right",
+        "content_alignment": "right",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_xWVmKL": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/3772283_m.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_H4H6iY",
+    "image_with_text_V3GmmP",
+    "rich_text_hYW9H3",
+    "rich_text_8kz3Va",
+    "image_banner_xWVmKL"
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_Tb4w8n": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_zCWdHH": {
+          "type": "heading",
+          "settings": {
+            "heading": "ご利用案内",
+            "heading_size": "h1"
+          }
+        },
+        "text_ARtd9K": {
+          "type": "text",
+          "settings": {
+            "text": "shopping guide",
+            "text_style": "caption-with-letter-spacing"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zCWdHH",
+        "text_ARtd9K"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/30172685_m.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "table_columns_YEJB9i": {
+      "type": "table-columns",
+      "blocks": {
+        "table_6qFG4V": {
+          "type": "table",
+          "settings": {
+            "title": "クレジットカード",
+            "description": "<p>JCB、Visa、Mastercard、アメリカンエキスプレスのデビットカードとクレジットカード。<\/p>"
+          }
+        },
+        "table_f6QbnE": {
+          "type": "table",
+          "settings": {
+            "title": "その他",
+            "description": "<p>Apple Pay、Google Pay、Shop Pay<\/p>"
+          }
+        },
+        "table_qfHrBr": {
+          "type": "table",
+          "settings": {
+            "title": "商品代金以外の必要料金",
+            "description": "<p>支払方法や配送方法によって、所定の手数料や送料が必要になる場合があります。お支払い方法および、配送方法をご確認ください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "table_6qFG4V",
+        "table_f6QbnE",
+        "table_qfHrBr"
+      ],
+      "settings": {
+        "header_text": "お支払い方法",
+        "header_color": "#494949",
+        "help_text": "<p><strong>領収書について<\/strong>: 領収書をご希望の場合は、注文時に備考欄に「領収書希望」とご記入ください。領収書を発送する商品と一緒にお送りいたします。<\/p><p><strong>不正利用の防止<\/strong>: 不正利用が疑われる場合は、ご注文を保留またはキャンセルさせていただくことがございます。<\/p><p><strong>返品・返金ポリシー<\/strong>: 返品・返金については、当社の返品ポリシーに基づき対応いたします。詳しくは返品ポリシーのページをご覧ください。<\/p><p><\/p><h5>クレジットカード情報はSSLにより暗号化され、安全に送信されます。<\/h5>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "table_columns_jah43J": {
+      "type": "table-columns",
+      "blocks": {
+        "table_VpJHm7": {
+          "type": "table",
+          "settings": {
+            "title": "離島以外の送料",
+            "description": "<p>一律 ￥550<\/p>"
+          }
+        },
+        "table_ra77Na": {
+          "type": "table",
+          "settings": {
+            "title": "離島の送料(沖縄、北海道)",
+            "description": "<p>一律 ￥1,320<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "table_VpJHm7",
+        "table_ra77Na"
+      ],
+      "settings": {
+        "header_text": "配送、お届けについて",
+        "header_color": "#102c57",
+        "help_text": "<p><strong>配送会社<\/strong><\/p><p>・ヤマト運輸<\/p><p><strong>配送に関する注意事項<\/strong><\/p><ol><li>複数配送先: 1回のご注文で複数の配送先を指定することはできません。配送先ごとに別々にご注文ください。<\/li><li>配送時間指定: 配送時間帯の指定が可能です。ご注文時に選択してください。<\/li><li>配送状況の確認: 発送完了メールに記載された追跡番号を使って、配送状況をご確認いただけます。<\/li><li>長期不在・住所不備: 長期不在や住所不備で商品が返送された場合、再送には追加送料がかかります。再送をご希望の場合は、カスタマーサポートまでご連絡ください。<\/li><li>天候・交通状況による遅延: 天候や交通状況により、お届けが遅れる場合があります。あらかじめご了承ください。<\/li><\/ol><h4><strong>【定期便での購入はいつでも送料無料】<\/strong><\/h4>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "table_columns_7HchpL": {
+      "type": "table-columns",
+      "settings": {
+        "header_text": "返品、不良品について",
+        "header_color": "#102c57",
+        "help_text": "<h4><strong>返品期限・条件<\/strong><\/h4><p>商品代金お支払後、お客様のご都合による返品及び返金はご容赦ください。<br\/>初期不良やお申込みされた商品と異なる商品が到着した場合は、交換・返品をお受けします。<br\/>商品到着後10日以内にご連絡いただけますようお願いいたします。<br\/><br\/>【30日間返金制度】対象商品につきましては、以下の手続きをとっていただいた場合のみ、商品代金を返金いたします。<br\/>１．まずお電話ください。（ECC通信販売センター　06-6352-0156　平日10～18時）<br\/>　　30日間返金制度についてご説明させていただきます。<br\/>２．空き箱、空き容器、お届けした際の納品明細書とともに、返金先の口座情報を紙に記載の上、弊社までお送りください。<br\/>　　その際の送料はご負担ください。<br\/>３．弊社で荷物を受け取って確認後、不備がなければ1ヶ月程度で振込手数料を除いた金額をお振込みいたします。<\/p><h4><strong>返品送料<\/strong><\/h4><p>商品到着後10日間の初期不良や注文したものと違う商品が届いた場合につきましては、返品の送料は弊社が負担させていただきます。<\/p><h4><strong>不良品<\/strong><\/h4><p>万一不良品等がございましたら、当店の在庫状況を確認のうえ、新品と交換させていただきます。<br\/>商品到着後10日以内にメールまたは電話（0120-144-270）でご連絡ください。それを過ぎますと返品交換のご要望はお受けできなくなりますので、ご了承ください。<\/p>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_fLTMm9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jQUw9M": {
+          "type": "heading",
+          "settings": {
+            "heading": "問題は解決しましたか？",
+            "heading_size": "h2"
+          }
+        },
+        "text_KQtz7c": {
+          "type": "text",
+          "settings": {
+            "text": "<p>フリーダイヤルでのお問い合わせもご利用いただけますので、ぜひお気軽にお問い合わせ下さい。<\/p>",
+            "text_style": "body"
+          }
+        },
+        "button_jDWh7m": {
+          "type": "button",
+          "settings": {
+            "button_label": "お問い合わせ、質問はこちらから",
+            "button_link": "shopify:\/\/pages\/contact",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jQUw9M",
+        "text_KQtz7c",
+        "button_jDWh7m"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/30183430_m.jpg",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_Tb4w8n",
+    "table_columns_YEJB9i",
+    "table_columns_jah43J",
+    "table_columns_7HchpL",
+    "image_with_text_fLTMm9"
+  ]
+}

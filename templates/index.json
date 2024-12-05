@@ -1,0 +1,459 @@
+{
+  "sections": {
+    "image_link_slider_Kt6nQ7": {
+      "type": "image-link-slider",
+      "blocks": {
+        "img_slide_yjVBRq": {
+          "type": "img_slide",
+          "settings": {
+            "link": "shopify:\/\/products\/elara100-torning-sheetmask-7v",
+            "pc_img_slide-jp": "shopify:\/\/shop_images\/main-banner-jp.jpg",
+            "sp_img_slide-jp": "shopify:\/\/shop_images\/IMG_1887.jpg",
+            "pc_img_slide-en": "shopify:\/\/shop_images\/main-banner-jp.jpg",
+            "sp_img_slide-en": "shopify:\/\/shop_images\/IMG_1887.jpg",
+            "pc_img_slide-zh": "shopify:\/\/shop_images\/main-banner-jp.jpg",
+            "sp_img_slide-zh": "shopify:\/\/shop_images\/IMG_1887.jpg"
+          }
+        },
+        "img_slide_3JXdm3": {
+          "type": "img_slide",
+          "settings": {
+            "link": "shopify:\/\/products\/elara-50g",
+            "pc_img_slide-jp": "shopify:\/\/shop_images\/main-banner-2-jp_ae05c1ae-a5ad-4df9-9987-55cad51201d0.png",
+            "sp_img_slide-jp": "shopify:\/\/shop_images\/main-banner-sp-1-jp.png",
+            "pc_img_slide-en": "shopify:\/\/shop_images\/main-banner-2-en_75bf0e94-b4a9-48ef-a429-df8dba9172f7.png",
+            "sp_img_slide-en": "shopify:\/\/shop_images\/main-banner-sp-1-en.png",
+            "pc_img_slide-zh": "shopify:\/\/shop_images\/main-banner-2-jp_b14a7c23-da3d-415d-9460-2c2af312f258.png",
+            "sp_img_slide-zh": "shopify:\/\/shop_images\/main-banner-sp-1-jp.png"
+          }
+        },
+        "img_slide_MGqCaU": {
+          "type": "img_slide",
+          "settings": {
+            "link": "shopify:\/\/products\/p-ec80",
+            "pc_img_slide-jp": "shopify:\/\/shop_images\/main-banner-3-jp_009f8ece-28eb-4a39-958e-fce2b535e7a1.png",
+            "sp_img_slide-jp": "shopify:\/\/shop_images\/main-banner-sp-3-jp_8d0f9bbf-1624-4f1c-ba52-cc6e8c1afabb.png",
+            "pc_img_slide-en": "shopify:\/\/shop_images\/main-banner-3-en_46367ffd-a86e-4988-bd87-4eff9121cc1d.png",
+            "sp_img_slide-en": "shopify:\/\/shop_images\/main-banner-sp-3-en.png",
+            "pc_img_slide-zh": "shopify:\/\/shop_images\/main-banner-3-jp_d16d1811-d426-445a-8cde-9aa634c60514.png",
+            "sp_img_slide-zh": "shopify:\/\/shop_images\/main-banner-sp-3-jp.png"
+          }
+        }
+      },
+      "block_order": [
+        "img_slide_yjVBRq",
+        "img_slide_3JXdm3",
+        "img_slide_MGqCaU"
+      ],
+      "settings": {
+        "bg_img": "shopify:\/\/shop_images\/1920_x_1080_px_1.png",
+        "line_color": "#fb8637"
+      }
+    },
+    "marquee_rLXeEC": {
+      "type": "marquee",
+      "blocks": {
+        "image_9P4THF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_a219b840-8d46-41ab-8ae4-c12be0df872d.png",
+            "image_width": 100
+          }
+        },
+        "image_iNkhNN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/15.png",
+            "image_width": 100
+          }
+        },
+        "image_mtiCk3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/9.png",
+            "image_width": 100
+          }
+        },
+        "image_Bac7yA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_a219b840-8d46-41ab-8ae4-c12be0df872d.png",
+            "image_width": 100
+          }
+        },
+        "image_C9W3p9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_5af4c170-af6c-49c6-8139-d1c4ec620c67.png",
+            "image_width": 100
+          }
+        },
+        "image_bcDbjH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/dr-namba-maintake_800_x_800_px_1.png",
+            "image_width": 100
+          }
+        },
+        "image_VNq3a8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1_6b34a234-eca7-4840-98c6-8be5ac7161aa.png",
+            "image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "image_9P4THF",
+        "image_iNkhNN",
+        "image_mtiCk3",
+        "image_Bac7yA",
+        "image_C9W3p9",
+        "image_bcDbjH",
+        "image_VNq3a8"
+      ],
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "padding_vertical": 10,
+        "padding_horizontal": 0,
+        "pause_on_hover": true
+      }
+    },
+    "campaign_slide_gMkCn9": {
+      "type": "campaign-slide",
+      "blocks": {
+        "feature_mV4PXG": {
+          "type": "feature",
+          "settings": {
+            "image-jp": "shopify:\/\/shop_images\/campaign-1_e1e3ec5d-46c3-49f0-823e-edbb8a79df17.png",
+            "link": "shopify:\/\/products\/elara100-torning-sheetmask-7v",
+            "tags": "新発売,水光肌",
+            "colors": "#FF4545,#BFECFF",
+            "description": "ECCが長年研究を続けるエラスチンを配合したシートマスクが新発売！",
+            "postdate": "2024\/10\/29 (火曜日)"
+          }
+        },
+        "feature_W6cQBt": {
+          "type": "feature",
+          "settings": {
+            "image-jp": "shopify:\/\/shop_images\/campaign-2_78846f69-dd69-4e6c-812b-d4d64c9c45c6.png",
+            "link": "shopify:\/\/products\/elara-50g-subscription",
+            "tags": "10%OFF,定期便",
+            "colors": "#FF9800,#5755FE",
+            "description": "お得なELARA100の定期便",
+            "postdate": "2024\/08\/7 (水曜日)"
+          }
+        },
+        "feature_pRkqnn": {
+          "type": "feature",
+          "settings": {
+            "image-jp": "shopify:\/\/shop_images\/campaign-3.png",
+            "link": "shopify:\/\/products\/p-ec80",
+            "tags": "シミ対策,ビタミン",
+            "colors": "#8CB9BD,#F5DD61",
+            "description": "美肌をキープ！飲むシミ対策！",
+            "postdate": "2024\/08\/7 (水曜日)"
+          }
+        }
+      },
+      "block_order": [
+        "feature_mV4PXG",
+        "feature_W6cQBt",
+        "feature_pRkqnn"
+      ],
+      "settings": {
+        "heading": "キャンペーン・特集",
+        "subheading": "CAMPAIGN",
+        "viewmore": "shopify:\/\/collections",
+        "color_scheme": "",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "recomends_product_view_3MbCn9": {
+      "type": "recomends-product-view",
+      "blocks": {
+        "image_banner_Wt7rJR": {
+          "type": "image-banner",
+          "settings": {
+            "pc_banner_image-jp": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "sp_banner_image-jp": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "pc_banner_image-en": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "sp_banner_image-en": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "pc_banner_image-zh": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "sp_banner_image-zh": "shopify:\/\/shop_images\/sheetmask-banner.png",
+            "banner_link": "shopify:\/\/products\/elara100-torning-sheetmask-7v"
+          }
+        },
+        "image_banner_Etma4T": {
+          "type": "image-banner",
+          "settings": {
+            "pc_banner_image-jp": "shopify:\/\/shop_images\/elara_banner_pc_0baadd63-b81b-485f-b841-e0e77a291cd9.jpg",
+            "sp_banner_image-jp": "shopify:\/\/shop_images\/elara_banner_pc_0baadd63-b81b-485f-b841-e0e77a291cd9.jpg",
+            "pc_banner_image-en": "shopify:\/\/shop_images\/elara_banner_pc_f57df1b5-e0e4-4510-a4db-6afad6317547.jpg",
+            "sp_banner_image-en": "shopify:\/\/shop_images\/elara_banner_pc_0baadd63-b81b-485f-b841-e0e77a291cd9.jpg",
+            "pc_banner_image-zh": "shopify:\/\/shop_images\/elara_banner_pc_0baadd63-b81b-485f-b841-e0e77a291cd9.jpg",
+            "sp_banner_image-zh": "shopify:\/\/shop_images\/elara_banner_pc_0baadd63-b81b-485f-b841-e0e77a291cd9.jpg",
+            "banner_link": "shopify:\/\/products\/elara-50g"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_Wt7rJR",
+        "image_banner_Etma4T"
+      ],
+      "settings": {
+        "heading": "LINE UP",
+        "subheading": "商品ラインナップ",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "products": "recomend-products",
+        "description": "<p>ECC選りすぐりの成分配合の<br>健康食品・化粧品<\/p>",
+        "backround_color_str": "#D1E9F6,#FFE6E6,#FFE6D1,#FFFBE6,#E6F7D1,#E6E1FF",
+        "accent_color": "#fb8637"
+      }
+    },
+    "news_grid_KTY3Hy": {
+      "type": "news-grid",
+      "blocks": {
+        "blog_8f8WUd": {
+          "type": "blog",
+          "settings": {
+            "title": "INFORMATION",
+            "subtitle": "お知らせ",
+            "blog": "お知らせ"
+          }
+        }
+      },
+      "block_order": [
+        "blog_8f8WUd"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_ThR8Tr": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video": "shopify:\/\/files\/videos\/ELARA100_PR6.mp4",
+        "video_url": "",
+        "cover_image": "shopify:\/\/shop_images\/2024-06-15_23.42.59.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "products_view_WqKwUt": {
+      "type": "products-view",
+      "blocks": {
+        "products_view_tNUjG8": {
+          "type": "products-view",
+          "settings": {
+            "title": "グリーンプロポリス",
+            "product": "green-propolis",
+            "image": "shopify:\/\/shop_images\/page-2_25e1c70c-49dc-4082-944b-9714bcd7f504.jpg"
+          }
+        },
+        "products_view_NzeMVA": {
+          "type": "products-view",
+          "settings": {
+            "title": "特許製法エラスチン ELARA100",
+            "product": "elara-50g",
+            "image": "shopify:\/\/shop_images\/page-4.jpg"
+          }
+        },
+        "products_view_E4HVjC": {
+          "type": "products-view",
+          "settings": {
+            "title": "ドクター・ナンバマイタケ",
+            "product": "dr-namba-maitake",
+            "image": "shopify:\/\/shop_images\/dr-namba-maintake.png"
+          }
+        }
+      },
+      "block_order": [
+        "products_view_tNUjG8",
+        "products_view_NzeMVA",
+        "products_view_E4HVjC"
+      ],
+      "settings": {
+        "title": "PICKUP",
+        "subtitle": "ピクアップ商品",
+        "floating_img": "shopify:\/\/shop_images\/1200_x_600_px_900_x_600_px_2.png",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banner_QhqrMn": {
+      "type": "banner",
+      "settings": {
+        "title": "アンバサダー会員募集",
+        "subtitle": "ブランドの価値を体現し、その魅力を世界に伝えられる、情熱あふれるあなたを求めています。",
+        "link": "shopify:\/\/pages\/contact",
+        "sp-banner-jp": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/banner-amb.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/banner-amb.png",
+        "sp-banner-zh": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/banner-amb.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "banner_zJPCgC": {
+      "type": "banner",
+      "settings": {
+        "title": "Beauty Inside Out",
+        "subtitle": "健康的で内側から輝く美しさの秘訣を知りませんか？",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/banner-column.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/banner-column.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/banner-column.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/banner-column.png",
+        "sp-banner-zh": "shopify:\/\/shop_images\/banner-column.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/banner-column.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banner_ThHYhR": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "https:\/\/www.instagram.com\/ecc_wellness\/",
+        "sp-banner-jp": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "sp-banner-zh": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/banner-sns-insta.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ambassador_article_hapMak": {
+      "type": "ambassador-article",
+      "settings": {
+        "heading": "アンバサダーコラム",
+        "subheading": "Ambassador's Column",
+        "blog": "コラム",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "tag_color": "#1e3f70"
+      }
+    },
+    "banner_jeEe9C": {
+      "type": "banner",
+      "settings": {
+        "title": "忙しいあなたに3分で水光肌へ",
+        "subtitle": "ELARA100 - トーニングシートマスク 7枚入り",
+        "link": "shopify:\/\/products\/elara100-torning-sheetmask-7v",
+        "sp-banner-jp": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "sp-banner-zh": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/sheetmask-banner.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "review_slider_JWbgn9": {
+      "type": "review-slider",
+      "blocks": {
+        "review_MNYhPm": {
+          "type": "review",
+          "settings": {
+            "customer_avator": "shopify:\/\/shop_images\/1_a219b840-8d46-41ab-8ae4-c12be0df872d.png",
+            "product": "elara100-torning-sheetmask-7v",
+            "customer_name": "えるもん様",
+            "rating": 5,
+            "review": "<p><strong>ツルツル、しっとり<\/strong><\/p><p>美容液たっぷりで、顔にピッタリ密着、喋っても剥がれません。<br\/>パックの後は、ツルツル、しっとり！<br\/>翌日の肌感が全然違います。<br\/>残った美容液は、手足に塗って、手足もしっとりです。<\/p>"
+          }
+        },
+        "review_8bQJNR": {
+          "type": "review",
+          "settings": {
+            "customer_avator": "shopify:\/\/shop_images\/elara100-50g-1.png",
+            "product": "elara-50g",
+            "customer_name": "M.A 様",
+            "rating": 4,
+            "review": "<p><strong>使うのが楽しみ<\/strong><\/p><p>美白効果について気になっていたので購入しました。<br\/>肌の弱い私には敏感肌対応のオールインワンゲルも使ってみたいと思ったポイントです。<br\/>今後のお肌の変化が楽しみです。<\/p>"
+          }
+        },
+        "review_fQXnw4": {
+          "type": "review",
+          "settings": {
+            "customer_avator": "shopify:\/\/shop_images\/13.png",
+            "product": "green-propolis-extract",
+            "customer_name": "K.J. 様",
+            "rating": 4,
+            "review": "<p>プロポリスを日常的に摂取するようになり、喉の痛みが軽減され、風邪を引きにくくなった気がします。また、疲労感が和らぎ、体調も良好に保てています。健康維持に役立っていると実感しています。<\/p>"
+          }
+        },
+        "review_rAdjqX": {
+          "type": "review",
+          "settings": {
+            "customer_avator": "shopify:\/\/shop_images\/9.png",
+            "product": "p-ec80",
+            "customer_name": "N.Y 様",
+            "rating": 5,
+            "review": "<p><strong>毎日の習慣になりました<\/strong><\/p><p>いつも欠かさず飲んでいるおかげか、毎日元気で過ごせています。<br\/>きっと、免疫を上げたり血管強化にいいとされるプロポリスが入っているからだと思っています。<br\/>人口甘味料を使っていないので甘味が苦手な方もおいしく飲めますよ～。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "review_MNYhPm",
+        "review_8bQJNR",
+        "review_fQXnw4",
+        "review_rAdjqX"
+      ],
+      "settings": {
+        "heading": "PICKUP REVIEW",
+        "subheading": "ピックアップレビュー",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "scroll_to_top_Lt6xME": {
+      "type": "scroll-to-top",
+      "settings": {
+        "button_color": "#fb8637",
+        "button_text": "ページトップに戻る"
+      }
+    }
+  },
+  "order": [
+    "image_link_slider_Kt6nQ7",
+    "marquee_rLXeEC",
+    "campaign_slide_gMkCn9",
+    "recomends_product_view_3MbCn9",
+    "news_grid_KTY3Hy",
+    "video_ThR8Tr",
+    "products_view_WqKwUt",
+    "banner_QhqrMn",
+    "banner_zJPCgC",
+    "banner_ThHYhR",
+    "ambassador_article_hapMak",
+    "banner_jeEe9C",
+    "review_slider_JWbgn9",
+    "scroll_to_top_Lt6xME"
+  ]
+}

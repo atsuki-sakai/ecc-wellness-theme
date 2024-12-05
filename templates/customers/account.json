@@ -1,0 +1,56 @@
+{
+  "sections": {
+    "rich_text_FcBchX": {
+      "type": "rich-text",
+      "blocks": {
+        "text_VFpymk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>定期購入を契約のお客様は注文履歴の下にある定期購入履歴からご契約内容を確認できます。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_VFpymk"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-3451c2aa-4409-4186-ab31-881623c0b928",
+        "full_width": true,
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-account",
+      "custom_css": [
+        ".samitaWS-account {display: none;}"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "1725915297f738c3cf": {
+      "type": "apps",
+      "blocks": {
+        "go_sub_subscription_gosub_account_block_zNNrKt": {
+          "type": "shopify:\/\/apps\/go-sub-subscription\/blocks\/gosub-account-block\/87efaa1b-acee-458e-9de2-d43423c133fa",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "go_sub_subscription_gosub_account_block_zNNrKt"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "rich_text_FcBchX",
+    "main",
+    "1725915297f738c3cf"
+  ]
+}

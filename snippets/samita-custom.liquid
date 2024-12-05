@@ -1,0 +1,166 @@
+<script>
+  window.Samita =  window.Samita || {}
+  window.Samita.Wholesale =  window.Samita.Wholesale || {}
+  window.Samita.Wholesale.theme = {
+    "selectors": {
+        "product": {
+            "element" : [ ".grid", ".product", ".grid.product-single", ".product-main", ".gfqv-product-wrapper", ".ga-product", ".product-scope" ],
+            "form": [ "[samitaWS-product-form]",".form", ".shopify-product-form", ".product-form", ".home-product form[action*=\"/cart/add\"]", ".product-form--regular form[action*=\"/cart/add\"]", ".shop-product form[action*=\"/cart/add\"]", "#shopify-section-featured-product form[action*=\"/cart/add\"]", "form.apb-product-form", "product-form form[action*=\"/cart/add\"]", ".product-page form[action*=\"/cart/add\"]", "[id*=\"ProductSection--\"] form[action*=\"/cart/add\"]", "form#add-to-cart-form", "form.sf-cart__form", "form.productForm", "form.product-form", "form.product-single__form", "form.shopify-product-form", "form.atc-form", "form.atc-form-mobile", "form[action*=\"/cart/add\"]:not([hidden])" ],
+            "price": [ "#ProductPrice-product-template", "#product-price", ".grid-product__price", "#ProductPrice", "#single_product__price-template-product", ".product-price", ".product__price—reg", "#productPrice-product-template", ".product__current-price", ".product-thumb-caption-price-current", ".product-item-caption-price-current", ".grid-product__price,.product__price", "span.price", "span.product-price", ".productitem--price", ".product-pricing", "div.price", "span.money", ".product-item__price", ".product-list-item-price", "p.price", ".product-meta__prices", "div.product-price", "span#price", ".price.money", "h3.price", "a.price", ".price-area", ".product-item-price", ".pricearea", ".collectionGrid .collectionBlock-info > p", "#ComparePrice", ".product--price-wrapper", ".product-page--price-wrapper", ".color--shop-accent.font-size--s.t--meta.f--main", ".ComparePrice",".ProductPrice", ".prodThumb .title span:last-child", ".price", ".product-single__price-product-template", ".product-info-price", ".price-money", ".prod-price", "#price-field", ".product-grid--price", ".prices,.pricing", "#product-price", ".money-styling", ".compare-at-price", ".product-item--price", ".card__price", ".product-card__price", ".product-price__price", ".product-item__price-wrapper", ".product-single__price", ".grid-product__price-wrap", "a.grid-link p.grid-link__meta", ".product__prices", "#comparePrice-product-template", "dl[class*=\"price\"]", "div[class*=\"price\"]", ".gl-card-pricing", ".ga-product_price-container" ],
+            "unitPrice": "[samitaWS-product-unit-price], #product-price,.product__price, .price:not(.price--on-sale) .price__regular .price-item--regular, .price.price--on-sale .price__sale .price-item--sale, #single_product__price-template-product",
+            "compareAtPrice": "[samitaWS-product-compare-at-price], .price.price--on-sale .price__sale .price-item--regular",
+            "signal": "[data-product-handle], [data-product-id]",
+            "notSignal": ":not([data-section-id=\"product-recommendations\"],[data-section-type=\"product-recommendations\"],#product-area,#looxReviews)",
+            "variantWrapper": "[samitaWS-product-variant-wrapper]",
+            "variantSelector": "[name=id],.product-variant-id",
+            "variantIdByAttribute": "swatch-current-variant, data-id",
+            "variantActivator": "[samitaWS-product-variant-activator], .ProductForm__Variants .ProductForm__Option, .lh-swatch-select, .swatch-image, .variant-image-swatch, #option-size, .selector-wrapper .replaced, .regular-select-content > .regular-select-item, .radios--input, ul.swatch-view > li > .swatch-selector, .single-option-selector, .swatch-element input, [data-product-option], .single-option-selector__radio, [data-index^=\"option\"], .SizeSwatchList input, .swatch-panda input[type=radio], .swatch input, .swatch-element input[type=radio], select[id*=\"product-select-\"], select[id|=\"product-select-option\"], [id|=\"productSelect-product\"], [id|=\"ProductSelect-option\"], select[id|=\"product-variants-option\"], select[id|=\"sca-qv-product-selected-option\"], select[id*=\"product-variants-\"], select[id|=\"product-selectors-option\"], select[id|=\"variant-listbox-option\"], select[id|=\"id-option\"],select[id|=\"SingleOptionSelector\"], .variant-input-wrap input, [data-action=\"select-value\"], variant-radios input, variant-selects input",
+            "productVariant": ".product-form__variants, .ga-product_variant_select, select[name=\"id\"], input[name=\"id\"], .qview-variants > select, select[name=\"id[]\"]",
+            "quantity": "[samitaWS-product-quantity],.quantity-selector__input, [name=qty], [name=quantity]",
+            "decreaseQuantity": "[samitaWS-drawer-line-item-qty-decrease], [name=\"minus\"],.js-qty__adjust--minus,.quantity-selector__button-wrapper--minus, .quantity-selector__button",
+            "increaseQuantity": "[samitaWS-cart-line-item-qty-increase],.js-qty__adjust--plus,.quantity-selector__button-wrapper--plus, .quantity-selector__button",
+            "addToCartButton": ".product-form__cart_samita, .btn-add-to-cart,.product-form__buttons, #AddToCart--product-template, .add-to-cart-btn, .product-form__cart-submit, #addToCart, [name=\"add\"], [type=\"submit\"], button.btn-addtocart, .product-submit, .product-form__add-button, [data-action=\"add-to-cart\"], .ProductForm__AddToCart",
+            "paymentButton": "[samitaWS-product-payment], [data-shopify=\"payment-button\"], [data-product-buy-now]"
+        },
+        "collection": {
+            "quickAddBtn": ".quick-add__submit",
+            "gridWrapperRelatedApp": ".ga-product",
+            "productLink": "[samitaWS-collection-product-link], h3[data-href*=\"/products/\"], div[data-href*=\"/products/\"], a.product-block__link[href*=\"/products/\"], a.indiv-product__link[href*=\"/products/\"], a.thumbnail__link[href*=\"/products/\"], a.product-item__link[href*=\"/products/\"], a.product-card__link[href*=\"/products/\"], a.product-card-link[href*=\"/products/\"], a.product-block__image__link[href*=\"/products/\"], a.stretched-link[href*=\"/products/\"], a.grid-product__link[href*=\"/products/\"], a.product-grid-item--link[href*=\"/products/\"], a.product-link[href*=\"/products/\"], a.product__link[href*=\"/products/\"], a.full-unstyled-link[href*=\"/products/\"], a.grid-item__link[href*=\"/products/\"], a.grid-product__link[href*=\"/products/\"], a[data-product-page-link][href*=\"/products/\"], a[href*=\"/products/\"]:not(.logo-bar__link,.ButtonGroup__Item.Button,.menu-promotion__link,.site-nav__link,.mobile-nav__link,.hero__sidebyside-image-link,.announcement-link,.breadcrumbs-list__link,.single-level-link,.d-none,.icon-twitter,.icon-facebook,.icon-pinterest,#btn,.list-menu__item.link.link--tex,.btnProductQuickview,.index-banner-slides-each,.global-banner-switch,.sub-nav-item-link,.announcement-bar__link,.Carousel__Cell,.Heading,.facebook,.twitter,.pinterest,.loyalty-redeem-product-title,.breadcrumbs__link,.cart__item-name,.cart-product-link,.price)",
+            "price": ["[samitaWS-collection-product-price]", ".boost-pfs-filter-product-item-price", ".grid-product__price", "#ProductPrice-product-template", "#ProductPrice", ".product-price", ".product__price—reg", "#productPrice-product-template", ".product__current-price", ".product-thumb-caption-price-current", ".product-item-caption-price-current", ".grid-product__price,.product__price", "span.price", "span.product-price", ".productitem--price", ".product-pricing", "div.price", "span.money", ".product-item__price", ".product-list-item-price", "p.price", ".product-meta__prices", "div.product-price", "span#price", ".price.money", "h3.price", "a.price", ".price-area", ".product-item-price", ".pricearea", ".collectionGrid .collectionBlock-info > p", "#ComparePrice", ".product--price-wrapper", ".product-page--price-wrapper", ".color--shop-accent.font-size--s.t--meta.f--main", ".ComparePrice",".ProductPrice", ".prodThumb .title span:last-child", ".price", ".product-single__price-product-template", ".product-info-price", ".price-money", ".prod-price", "#price-field", ".product-grid--price", ".prices,.pricing", "#product-price", ".money-styling", ".compare-at-price", ".product-item--price", ".card__price", ".product-card__price", ".product-price__price", ".product-item__price-wrapper", ".product-single__price", ".grid-product__price-wrap", "a.grid-link p.grid-link__meta", ".product__prices", "#comparePrice-product-template", "dl[class*=\"price\"]", "div[class*=\"price\"]", ".gl-card-pricing", ".ga-product_price-container" ],
+            "unitPrice": "[samitaWS-product-unit-price], .boost-pfs-filter-product-item-price, .product-card__price-current, .grid-product__price, .price:not(.price--on-sale) .price__regular .price-item--regular, .price.price--on-sale .price__sale .price-item--sale",
+            "compareAtPrice": "[samitaWS-product-compare-at-price], .price.price--on-sale .price__sale .price-item--regular",
+            "notElClass": ["samitaWS-card-list","card-list", "page-width", "collection-template",".cart-item", "boost-pfs-filter-products", "cart-item-list__body", "breadcrumbs", "announcement", "shopify-section", "mega-menu__content", "cart_list_items", "column_product_info", "cart", ".cart__image"]
+        },
+        "quickView": {},
+        "quickOrder": {
+            "element": [".samitaWS-quick-order-form"],
+            "price": [".form_product_price_row"],
+            "quantity": [".form_quantity___quanity[name=\"quantity\"]"]
+        },
+        "cart": {
+            "link": "a[href*=\"/cart\"]",
+            "countBubble": [
+                "[samitaWS-count-bubble]",
+                ".cart-count-bubble",
+                ".cart-link__bubble"
+            ],
+            "form": [
+                "[samitaWS-checkout-form]",
+                "#MainContent",
+                ".ajax-cart__form-wrapper",
+                "#CartPage form[action*=\"/cart\"]",
+                ".cart-wrapper form[action*=\"/cart\"]",
+                ".main-content-inner form[action=\"/cart\"]",
+                ".main-content form[action=\"/cart\"]",
+                "[data-section-id=\"cart-template\"] form[action*=\"/cart\"]",
+                "cart-items form[action*=\"/cart\"]",
+                "form#updateform",
+                "form#cartForm",
+                "form[action*=\"/cart\"]#cartform",
+                ".page-content form[action*=\"/cart\"]",
+                "form[action*=\"/cart\"]:not([action*=\"/cart/add\"]):not([hidden])"
+            ],
+            "drawerForm": [
+                "[samitaWS-drawer-form]",
+                "#CartDrawer"
+            ],
+            "drawerPopup": [
+                "#cart-notification"
+            ],
+            "drawerCustomForm": [
+                "[samitaWS-drawerCustom-form]",
+                ".samitaWS-drawerCustom-form"
+            ],
+            "page": [{
+                "lineItem": {
+                    "key": ".samitaWS-cart-line-item-key, .cart-item",
+                    "quantity": {
+                        "wrapper": "[samitaWS-cart-line-item-qty-wrapper]",
+                        "input": "[samitaWS-cart-line-item-qty]",
+                        "decrease": "[samitaWS-cart-line-item-qty-decrease]",
+                        "increase": "[samitaWS-cart-line-item-qty-increase]",
+                        "removeButton": "[samitaWS-cart-line-item-remove-button]"
+                    },
+                    "price": "[samitaWS-cart-product-main-price], .cart-item__details > div.product-option:first-of-type, .CartItem__Info .CartItem__PriceList",
+                    "unitPrice": "[samitaWS-cart-line-item-unit-price], div.product-option",
+                    "priceEnd": "[samitaWS-cart-product-price-end], .cart-item__totals .cart-item__price-wrapper .price.price--end",
+                    "totalPrice": "[samitaWS-cart-line-item-total-price], .cart-item__price-wrapper .price.price--end"
+                },
+                "subtotalPrice": "[samitaWS-cart-subtotal-price], .totals__total-value",
+                "checkoutBtn": "button[name=\"checkout\"], #CartDrawer-Checkout",
+                "discountBox": "[samitaWS-cart-discount-box]"
+            }],
+            "drawer": [
+                {
+                    "btnClose": "button.drawer__close",
+                    "lineItem": {
+                        "key": ".samitaWS-drawer-line-item-key, .cart-item",
+                        "quantity": {
+                            "wrapper": "[samitaWS-drawer-line-item-qty-wrapper], .cart-item__quantity",
+                            "input": "[samitaWS-drawer-line-item-qty], .quantity__input",
+                            "decrease": "[samitaWS-drawer-line-item-qty-decrease], [name=\"minus\"]",
+                            "increase": "[samitaWS-drawer-line-item-qty-increase], [name=\"plus\"]"
+                        },
+                        "removeButton": "[samitaWS-drawer-line-item-remove-button], cart-remove-button button",
+                        "price": "[samitaWS-drawer-product-main-price], .cart-item__details > div.product-option:first-of-type, .CartItem__Info .CartItem__PriceList",
+                        "unitPrice": "[samitaWS-drawer-line-item-unit-price], div.product-option",
+                        "priceEnd": "[samitaWS-cart-product-price-end], .cart-item__totals .cart-item__price-wrapper .price.price--end",
+                        "totalPrice": "[samitaWS-drawer-line-item-total-price], .cart-item__price-wrapper .price.price--end"
+                    },
+		            "notBtnClass": [
+                        "push-btn-surface",
+                        "icartCheckoutBtn"
+                    ],
+                    "subtotalPrice": "[samitaWS-drawer-line-item-subtotal-price], .totals__subtotal-value",
+                    "checkoutBtn": "[samitaWS-drawer-checkout-btn], #CartDrawer-Checkout, form[action*=\"/cart\"] [type=\"submit\"][name=\"checkout\"], form[action*=\"/cart\"] [name=\"checkout\"]"
+                }
+            ],
+            "drawerCustom": [
+                {
+                    "lineItem": {
+                        "key": ".samitaWS-drawerCustom-line-item-key",
+                        "quantity": {
+                            "wrapper": "[samitaWS-drawerCustom-line-item-qty-wrapper]",
+                            "input": "[samitaWS-drawerCustom-line-item-qty]",
+                            "decrease": "[samitaWS-drawerCustom-line-item-qty-decrease]",
+                            "increase": "[samitaWS-drawerCustom-line-item-qty-increase]"
+                        },
+                        "removeButton": "[samitaWS-drawerCustom-line-item-remove-button]",
+                        "price": "[samitaWS-drawerCustom-product-main-price]",
+                        "priceEnd": "[samitaWS-drawerCustom-product-price-end]",
+                        "unitPrice": "[samitaWS-drawerCustom-line-item-unit-price]",
+                        "totalPrice": "[samitaWS-drawerCustom-line-item-total-price]"
+                    },
+                    "subtotalPrice": ".samitaWS-totals--price strong",
+                    "discountBox": "[samitaWS-cart-discount-box]",
+                    "checkoutBtn": ".samitaWS-btn-checkout"
+                }
+            ]
+        },
+        "account": {
+            "elementSelectors": [ ".samita-account", ".customer.account"]
+        }
+    },
+    "integrateApps": [
+        "globo.relatedproduct.loaded",
+        "globoFilterQuickviewRenderCompleted",
+        "globoFilterRenderSearchCompleted",
+        "globoFilterRenderCompleted",
+        "globoRelatedBuildWidgetCalback",
+        "cart:open",
+        "cartdrawer:opened",
+        "cart:build",
+        "cart:quantity.cart-cart-drawer",
+        "cart:updated",
+        "cart:close",
+        "collectionUpdate",
+        "theme:drawer:toggle",
+        "theme:drawer:close",
+        "transitionend",
+        "theme:drawer:open",
+        "theme:drawer:open",
+        "cart-update",
+        "addwishlistitem"
+    ]
+}
+</script>

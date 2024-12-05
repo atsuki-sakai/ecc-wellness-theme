@@ -1,0 +1,286 @@
+{%- liquid
+  assign activeBgColor = section.settings['active-bg-color']
+  assign deactiveBgColor = "#FFFFFFFF"
+-%}
+
+{% style %}
+  .accordion-wrapper-{{ section.id }} {
+    margin-top: 1rem;
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
+    margin-left: {{ section.settings.margin-x-x }}rem;
+    margin-right: {{ section.settings.margin-x-x }}rem;
+  }
+  .accordion-{{ section.id }} {
+    max-width: {{settings.page_width}}px;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: solid 0.5px gray;
+    box-shadow: 0px 0px 6px lightgray;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+   .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 1000px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+{% endstyle %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- else -%}
+      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+    {%- endif -%}
+    <div class="original-contact-form-{{ section.id }}__heading-container scroll-trigger animate--slide-in">
+      <p>
+        {{ section.settings['form-head'] }}
+      </p>
+    </div>
+    <div class="accordion-wrapper-{{ section.id }} scroll-trigger animate--slide-in">
+      <div class="accordion-{{ section.id }}">
+        {% for block in section.blocks %}
+          <script>
+             function getContrastColor(hexColor) {
+                // カラーコードをRGBに変換
+                var r = parseInt(hexColor.substring(1, 3), 16);
+                var g = parseInt(hexColor.substring(3, 5), 16);
+                var b = parseInt(hexColor.substring(5, 7), 16);
+
+                // YIQ方式を使用して明るさを計算
+                var brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+                // 明るさが128未満の場合は白を返し、それ以外の場合は黒を返す
+                return brightness < 128 ? "#ffffff" : "#000000";
+            }
+
+              document.addEventListener("DOMContentLoaded", function() {
+                  const accordion = document.querySelector('.accordion-{{ section.id }}');
+                  accordion.addEventListener('click', function(event) {
+                      const target = event.target;
+                      if (target.classList.contains('accordion-{{ block.id }}__title')) {
+                          const item = target.closest('.accordion-{{ block.id }}__item');
+                          const content = item.querySelector('.accordion-{{ block.id }}__content');
+                          const isActive = item.classList.contains('active');
+
+                          accordion.querySelectorAll('.accordion-{{ block.id }}__item').forEach(item => {
+                              item.classList.remove('active');
+                              item.querySelector('.accordion-{{ block.id }}__content').style.maxHeight = '0';
+                          });
+
+                          if (!isActive) {
+
+                            　var bgColor = "{{activeBgColor}}";
+                              target.style.background = bgColor;
+                              var contrastColor = getContrastColor(bgColor);
+                              target.style.color = contrastColor;
+                              item.classList.add('active');
+
+                              const computedStyle = window.getComputedStyle(content);
+                              const marginTop = parseFloat(computedStyle.getPropertyValue('margin-top'));
+                              const marginBottom = parseFloat(computedStyle.getPropertyValue('margin-bottom'));
+
+                              const totalHeight = content.scrollHeight + marginTop + marginBottom;
+                              content.style.maxHeight = totalHeight + 'px';
+                          } else {
+                              target.style.background = "{{deactiveBgColor}}";
+                              target.style.color = "{{deactiveColor}}";
+                              content.style.maxHeight = '0';
+                          }
+                      }
+                  });
+              });
+          </script>
+          {% style %}
+              .accordion-{{ block.id }}__content {
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out, margin 0.5s ease-in-out;
+                opacity: 0; /* Initially hidden */
+                transform: translateY(20px); /* Move content up */
+                margin: 0 1rem;
+              }
+              .accordion-{{ block.id }}__item:not(:last-child) {
+                border-bottom: solid 0.5px gray;
+              }
+              .accordion-{{ block.id }}__title-wrapper {
+                width: 100%;
+                display: flex;
+                justify-content: spacebetween;
+                align-items: center;
+              }
+              .accordion-{{ block.id }}__title {
+                cursor: pointer;
+                padding: 15px;
+                background-color: {{deactiveBgColor}};
+                word-wrap: break-word;
+                transition: background-color 0.4s ease, transition-delay 0.4s;
+                font-size: 15px;
+                letter-spacing: 1px;
+                line-height: 1.5;
+              }
+              .accordion-{{ block.id }}__title.active {
+                background-color: {{ activeBgColor }};
+              }
+              .accordion-{{ block.id }}__content-inner {
+                word-wrap: break-word;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 1px;
+              }
+              .accordion-{{ block.id }}__content p {
+                margin: 0;
+                padding: 15px 0;
+              }
+              .accordion-{{ block.id }}__item.active .accordion-{{ block.id }}__content {
+                max-height: 500px;
+                transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out 0.1s, transform 0.3s ease-in-out 0.1s, margin 0.5s ease-in-out 0.1s;
+                opacity: 1;
+                margin: 1rem;
+                transform: translateY(0);
+              }
+              .accordion-{{ block.id }}__item:not(.active) .accordion-{{ block.id }}__content {
+                max-height: 0;
+                margin: 0 1rem;
+                overflow: hidden;
+                transform: translateY(-8px);
+            }
+          {% endstyle %}
+          <div class="accordion-{{ block.id }}__item">
+            <div class="accordion-{{ block.id }}__title">
+              {{ block.settings.question }}
+            </div>
+            <div class="accordion-{{ block.id }}__content">
+              <div class="accordion-{{ block.id }}__content-inner">
+                {{ block.settings.answer | strip_html }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "よくある質問",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "よくある質問",
+      "label": "タイトル"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "form-head",
+      "label": "説明",
+      "default": "以下のお問い合わせフォームからお問い合わせ内容をお問い合わせください。"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin-x-x",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "rem",
+      "label": "スペース（左右）",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "active-bg-color",
+      "label": "オープン時(背景)",
+      "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "section",
+      "name": "Q&Aセクション",
+      "limit": 7,
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "質問",
+          "label": "質問"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default":  "<p>回答文を入力して下さい。</p>",
+          "label": "回答"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "よくある質問"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,230 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  .collection-view__wrapper {
+    position: relative;
+    margin-bottom: 15rem;
+  }
+  .collection-view {
+    width: 100%;
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+  }
+  .collection-view__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 2rem;
+    padding: 0 2rem 8rem;
+  }
+  .collection-view__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: white;
+    transition: transform 0.3s ease
+    , box-shadow 0.3s ease;
+  }
+  .collection-view__item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .collection-view__item img {
+    width: 50px;
+    height: 50px;
+  }
+  .collection-view__item h3 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  .floating_image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: fit-content;
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    transform: translateY(60%);
+    background: transparent;
+  }
+  .floating_image img {
+    width: 100%;
+    max-width: 330px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      margin-top: 9rem;
+    }
+    .section-head {
+      padding: 0 5rem !important;
+    }
+    .collection-view__item h3 {
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    .collection-view__item img {
+      width: 60px;
+      height: 60px;
+    }
+    .collection-view__header {
+      margin-bottom: 3rem;
+      padding: 0 5rem;
+    }
+    .collection-view__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 5rem 2rem;
+      margin-bottom: 5rem;
+    }
+    .section-{{ section.id }}
+    -padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .collection-view__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .collection-view__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+{%- endstyle -%}
+
+<div class="collection-view__wrapper color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="section-{{ section.id }}-padding">
+    <div class="collection-view">
+      <div class="section-head scroll-trigger animate--slide-in">
+        <h2>{{ section.settings.title }}</h2>
+        <span>{{ section.settings.subtitle }}</span>
+      </div>
+      <div class="collection-view__grid">
+        {% for block in section.blocks %}
+          <a
+            href="{{ block.settings.product.url }}"
+            class="collection-view__item scroll-trigger animate--slide-in"
+            style="text-decoration:none; color: black; cursor: pointer;"
+          >
+            <h3>
+              {% if block.settings.title %}
+                {{ block.settings.title }}
+              {% else %}
+                {{ block.settings.product.title }}
+              {% endif %}
+            </h3>
+            <img
+              src="{{ block.settings.product.images[0].src | image_url }}"
+              width="60"
+              height="60"
+              alt="{{ block.settings.title }}"
+            >
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="floating_image">
+    <img
+      class="scroll-trigger animate--slide-in"
+      src="{{ section.settings.floating_img | image_url  }}"
+      alt="floating image"
+      width="395"
+      height="230"
+    >
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "商品ビュー",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "LINE UP",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "default": "商品一覧",
+      "label": "サブタイトル"
+    },
+    {
+      "type": "image_picker",
+      "id": "floating_img",
+      "label": "下部画像",
+      "info": "設定する画像は395x230pxなどの比率の画像を設定して下さい。"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "products-view",
+      "name": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "ELARA100",
+          "label": "商品名"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "商品"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "アイコン",
+          "info": "設定する画像は300x300など1/1の比率の画像を設定して下さい。"
+        }
+      ]
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "商品ビュー"
+    }
+  ]
+}
+{% endschema %}

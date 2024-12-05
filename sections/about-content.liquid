@@ -1,0 +1,98 @@
+<div class="tw-overflow-hidden tw-bg-white tw-py-24 sm:tw-py-32">
+  <div class="tw-mx-auto tw-max-w-[1100px] tw-px-8  lg:tw-px-12">
+    <div class="tw-max-w-6xl">
+      <p class="tw-text-2xl tw-font-semibold tw-leading-8 tw-text-indigo-600">{{ section.settings.title }}</p>
+      <h1 class="tw-mt-2 tw-text-pretty tw-text-5xl tw-font-semibold tw-tracking-tight tw-text-gray-900 sm:tw-text-5xl">{{ section.settings.subheading }}</h1>
+      <p class="tw-mt-6 tw-text-balance tw-text-2xl tw-leading-8 tw-text-gray-700">{{ section.settings.description }}</p>
+    </div>
+    <section class="tw-mt-20 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-gap-x-8 lg:tw-gap-y-16">
+      <div class="tw-lg:pr-8">
+        <h2 class="tw-text-pretty tw-text-3xl tw-font-semibold tw-tracking-tight tw-text-gray-900">{{ section.settings.mission_heading }}</h2>
+        <p class="tw-mt-6 tw-text-2xl tw-text-gray-600">{{ section.settings.mission_description }}</p>
+        <p class="tw-mt-8 tw-text-2xl tw-text-gray-600">{{ section.settings.mission_description_2 }}</p>
+      </div>
+      <div class="tw-pt-16 lg:tw-row-span-2 lg:tw-mr-16 xl:tw-mr-auto">
+        <div class="-tw-mx-8 tw-grid tw-grid-cols-2 tw-gap-4 sm:-mx-16 sm:tw-grid-cols-4 lg:tw-mx-0 lg:tw-grid-cols-2 lg:tw-gap-4 xl:tw-gap-8">
+            <div class="tw-aspect-square tw-overflow-hidden tw-rounded-xl tw-shadow-xl tw-outline-1 -tw-outline-offset-1 tw-outline-black/10">
+              <img alt="" src="{{ section.blocks[0].settings.image | image_url }}" class="tw-block tw-size-full tw-object-cover" width="560" height="560">
+            </div>
+
+          <div class="-tw-mt-8 tw-aspect-square tw-overflow-hidden tw-rounded-xl tw-shadow-xl tw-outline-1 -tw-outline-offset-1 tw-outline-black/10 lg:-tw-mt-40">
+            <img alt="" src="{{ section.blocks[1].settings.image | image_url }}" class="tw-block tw-size-full tw-object-cover" width="560" height="560">
+          </div>
+          <div class="tw-aspect-square tw-overflow-hidden tw-rounded-xl tw-shadow-xl tw-outline-1 -tw-outline-offset-1 tw-outline-black/10">
+            <img alt="" src="{{ section.blocks[2].settings.image | image_url }}" class="tw-block tw-size-full tw-object-cover" width="560" height="560">
+          </div>
+          <div class="-tw-mt-8 tw-aspect-square tw-overflow-hidden tw-rounded-xl tw-shadow-xl tw-outline-1 -tw-outline-offset-1 tw-outline-black/10 lg:-tw-mt-40">
+            <img alt="" src="{{ section.blocks[3].settings.image | image_url }}" class="tw-block tw-size-full tw-object-cover" width="560" height="560">
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "AboutContent",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "私たちについて"
+      },
+      {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading",
+        "default": "世界をより良い場所にするために"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "私たちは、世界をより良い場所にするために、お客様のために最高の製品とサービスを提供することを使命としています。"
+      },
+      {
+        "type": "text",
+        "id": "mission_heading",
+        "label": "Mission Heading",
+        "default": "私たちの使命"
+      },
+      {
+        "type": "text",
+        "id": "mission_description",
+        "label": "Mission Description",
+        "default": "私たちは、世界をより良い場所にするために、お客様のために最高の製品とサービスを提供することを使命としています。"
+      },
+      {
+        "type": "text",
+        "id": "mission_description_2",
+        "label": "Mission Description 2",
+        "default": "私たちは、世界をより良い場所にするために、お客様のために最高の製品とサービスを提供することを使命としています。"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "limit": 4,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+    {
+      "name": "AboutContent"
+    }
+  ]
+  }
+{% endschema %}

@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_4FjjaL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_96Xynf": {
+          "type": "heading",
+          "settings": {
+            "heading": "ご注文いただきありがとうございます",
+            "heading_size": "h2"
+          }
+        },
+        "text_8zdNXw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>アカウントに注文確認メールを送信いたしましたので注文をご確認ください。お荷物と一緒に請求書をお送りいたしますので、請求書の期日までにお支払い下さい。またのご利用をお願い致します。<\/p>"
+          }
+        },
+        "button_8GMeWJ": {
+          "type": "button",
+          "settings": {
+            "button_label": "トップページへ",
+            "button_link": "\/",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_96Xynf",
+        "text_8zdNXw",
+        "button_8GMeWJ"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_4FjjaL"
+  ]
+}

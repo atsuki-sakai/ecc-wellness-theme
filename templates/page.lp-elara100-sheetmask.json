@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "lp_floating_btn_CNnaHk": {
+      "type": "lp-floating-btn",
+      "settings": {
+        "link": "shopify:\/\/products\/elara100-トーニングシートマスク",
+        "image": "shopify:\/\/shop_images\/ELARA100-banner.jpg"
+      }
+    },
+    "lp_image_section_KdLUx3": {
+      "type": "lp-image-section",
+      "custom_css": [
+        ".chat-app--is-mobile {display: none; margin: 0;}"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/0ec246b4a784c6a80d05a1bb43a4161f.jpg"
+      }
+    },
+    "lp_image_section_eE86Bz": {
+      "type": "lp-image-section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/b84c41c16c99523456b42ff33f25fa1f.jpg"
+      }
+    },
+    "lp_image_section_nEjRNi": {
+      "type": "lp-image-section",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/8f4c8aff36bf706e0334edba4ec816d3.jpg"
+      }
+    },
+    "hidden_headers_VPKC7X": {
+      "type": "hidden-headers",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "lp_floating_btn_CNnaHk",
+    "lp_image_section_KdLUx3",
+    "lp_image_section_eE86Bz",
+    "lp_image_section_nEjRNi",
+    "hidden_headers_VPKC7X"
+  ]
+}

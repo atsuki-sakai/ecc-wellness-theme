@@ -1,0 +1,166 @@
+
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+  
+  {%- style -%}
+  
+    @media screen and (min-width: 750px) {}
+  
+  {%- endstyle -%}
+  
+<div class="isolate gradient {{ section.settings.color_scheme }}">
+    <div class="section-{{ section.id }}-padding scroll-trigger animate--slide-in">
+        <div class="tw-relative tw-overflow-hidden tw-bg-white">
+        <!-- Decorative background image and gradient -->
+        <div aria-hidden="true" class="tw-absolute tw-inset-0">
+            <div class="tw-absolute tw-inset-0 tw-mx-auto tw-max-w-[1100px] tw-overflow-hidden xl:tw-px-8">
+              {% if section.settings.background_image != blank %}
+                <img src="{{ section.settings.background_image | image_url: width: 1100 }}" alt="" class="tw-h-full tw-w-full tw-object-cover tw-object-center" width="1100" height="1100"> 
+              {% else %}
+                <img src="https://tailwindui.com/plus/img/ecommerce-images/home-page-02-sale-full-width.jpg" alt="" class="tw-h-full tw-w-full tw-object-cover tw-object-center" width="1100" height="1100"> 
+              {% endif %}
+            </div>
+            <div class="tw-absolute tw-inset-0 tw-bg-white tw-bg-opacity-75">&nbsp;</div>
+            <div class="tw-absolute tw-inset-0 tw-bg-gradient-to-t tw-from-white tw-via-white">&nbsp;</div>
+        </div>
+
+        <!-- Callout -->
+        <section aria-labelledby="sale-heading" class="tw-relative tw-mx-auto tw-flex tw-max-w-[1100px] tw-flex-col tw-items-center tw-px-6 tw-pt-32 tw-text-center sm:tw-px-6 lg:tw-px-8">
+            <div class="tw-mx-auto tw-max-w-2xl lg:tw-max-w-none">
+            <h2 id="sale-heading" class="tw-text-4xl tw-font-bold tw-tracking-tight tw-text-gray-900 sm:tw-text-5xl lg:tw-text-6xl">{{ section.settings.title }}</h2>
+            <p class="tw-mx-auto tw-mt-4 tw-max-w-2xl tw-text-2xl tw-text-gray-500 tw-py-6">{{ section.settings.sub_title }}</p>
+            <a href="{{ section.settings.btn_link }}" class="tw-mt-6 tw-inline-block tw-w-full tw-rounded-full tw-border tw-border-[#e3cb82] tw-bg-gradient-to-r tw-from-[#C4AD68] tw-to-[#D4B863FF]/80 tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-all tw-duration-500 hover:tw-bg-[#9d8a53] sm:tw-w-auto tw-shadow-lg">{{ section.settings.btn_text }}</a>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section aria-labelledby="testimonial-heading" class="tw-relative tw-mx-auto tw-max-w-[1100px] tw-px-4 tw-py-24 sm:tw-px-6 lg:tw-px-8 lg:tw-py-32 ">
+            <div class="tw-mx-auto tw-p-4 tw-max-w-2xl lg:tw-max-w-none">
+            <h2 id="testimonial-heading" class="tw-text-3xl tw-font-bold tw-tracking-tight tw-text-gray-900">{{ section.settings.testimonial_title }}</h2>
+
+            <div class="tw-mt-16 tw-space-y-16 lg:tw-grid lg:tw-grid-cols-3 lg:tw-gap-x-8 lg:tw-space-y-0">
+                {% for block in section.blocks %}
+                  <blockquote class="sm:tw-flex lg:tw-block">
+                    <svg width="24" height="18" viewBox="0 0 24 18" aria-hidden="true" class="tw-flex-shrink-0 tw-text-gray-300">
+                        <path d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z" fill="currentColor" />
+                    </svg>
+                    <div class="tw-mt-8 sm:tw-ml-6 sm:tw-mt-0 lg:tw-ml-0 lg:tw-mt-10">
+                        <p class="tw-text-2xl tw-text-gray-500">{{ block.settings.comment }}</p>
+                        <cite class="tw-mt-4 tw-block tw-font-semibold tw-not-italic tw-text-gray-900 tw-text-xl">{{ block.settings.author }}</cite>
+                    </div>
+                    </blockquote>
+                {% endfor %}
+            </div>
+            </div>
+        </section>
+        </div>
+
+    </div>
+</div>
+  
+  
+  {% schema %}
+    {
+      "name": "testimonial",
+      "tag": "section",
+      "settings": [
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color Scheme",
+          "default": "background-1"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Get 25% off during our one-time sale"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "default": "Most of our products are limited releases that won't come back. Get your favorite items while they're in stock."
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Get access to our one-time sale"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_title",
+          "label": "Testimonial Title",
+          "default": "What are people saying?"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "testimonial",
+          "name": "Testimonial",
+          "limit": 3,
+          "settings": [
+            {
+              "type": "text",
+              "id": "comment",
+              "label": "Quote",
+              "default": "My order arrived super quickly. The product is even better than I hoped it would be. Very happy customer over here!</p>"
+            },
+            {
+              "type": "text",
+              "id": "author",
+              "label": "Author",
+              "default": "Sarah Peters, New Orleans"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Testimonial"
+        }
+      ]
+    }
+  {% endschema %}

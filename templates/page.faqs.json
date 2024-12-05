@@ -1,0 +1,369 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_x8MzqY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_7xYTUq": {
+          "type": "heading",
+          "settings": {
+            "heading": "よくある質問",
+            "heading_size": "h1"
+          }
+        },
+        "text_cPrG7P": {
+          "type": "text",
+          "settings": {
+            "text": "FAQ",
+            "text_style": "caption-with-letter-spacing"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7xYTUq",
+        "text_cPrG7P"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/29793327_m.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text_Gtnnh7": {
+      "type": "rich-text",
+      "blocks": {
+        "text_MkTtak": {
+          "type": "text",
+          "settings": {
+            "text": "<p>当社の製品に関するよくいただくご質問を下記に記載しております。<br\/>ご不明点について、お問い合わせ前にぜひ一度ご確認下さい。<\/p>"
+          }
+        },
+        "button_V6Ug8j": {
+          "type": "button",
+          "settings": {
+            "button_label": "ご質問、お問い合わせはこちら",
+            "button_link": "shopify:\/\/pages\/contact",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_MkTtak",
+        "button_V6Ug8j"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "faqs_pRDMEy": {
+      "type": "faqs",
+      "blocks": {
+        "section_EtgYGJ": {
+          "type": "section",
+          "settings": {
+            "question": "どのように保管すればよいですか。",
+            "answer": "<p>高温多湿および直射日光を避けて保存してください。<\/p>"
+          }
+        },
+        "section_EmdkCk": {
+          "type": "section",
+          "settings": {
+            "question": "使用期限はどのくらいですか。",
+            "answer": "<p>ECCウェルネスの健康食品は2年、化粧品は3年です。<\/p>"
+          }
+        },
+        "section_qHiNbw": {
+          "type": "section",
+          "settings": {
+            "question": "エラスチンとはなんですか？",
+            "answer": "<p>たんぱく質の仲間で、よく知られている「コラーゲン」と同じように人間や生き物の身体の中で、様々な組織をかたち作る役目を担っています。ゴムのように伸び縮をする性質が大きな特長で、じん帯や肺、血管や子宮など伸縮を必要とする部分に多く含まれています。またエラスチンは美容にも大きく関わります。エラスチンがしっかりとコラーゲンを支えることにより、お肌の弾力やハリが保たれます。エラスチンが不足すると、たるみやシワの原因にもなります。<\/p>"
+          }
+        },
+        "section_NEFNkr": {
+          "type": "section",
+          "settings": {
+            "question": "商品の効果的な使用方法はありますか？",
+            "answer": "<p>エラスチンは、夜眠る前に飲んだり、塗ったりすることで翌朝違いをお感じになるというお声を多くいただきます。<\/p>"
+          }
+        },
+        "section_GwBVV6": {
+          "type": "section",
+          "settings": {
+            "question": "他の美容液を併用しても良いでしょうか。",
+            "answer": "<p>OKです。ELARA100オールインワンゲルは、お肌を保護する高分子エラスチンが含まれますので、美容液など、お肌に浸透させたいものはELARA100オールインワンゲルの前にご使用ください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "section_EtgYGJ",
+        "section_EmdkCk",
+        "section_qHiNbw",
+        "section_NEFNkr",
+        "section_GwBVV6"
+      ],
+      "settings": {
+        "heading": "商品について",
+        "form-head": "",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin-x-x": 0,
+        "active-bg-color": "#cacaca"
+      }
+    },
+    "faqs_VghMit": {
+      "type": "faqs",
+      "blocks": {
+        "section_i76GkD": {
+          "type": "section",
+          "settings": {
+            "question": "注文後どれくらいで商品が届きますか？",
+            "answer": "<p>通常、ご注文から3〜5営業日以内に発送いたします。地域によっては多少の遅れが生じる場合があります。<\/p>"
+          }
+        },
+        "section_UnJfhJ": {
+          "type": "section",
+          "settings": {
+            "question": "配送料はいくらですか？",
+            "answer": "<p>ご購入金額が税抜10,000円未満では、税抜500円（沖縄・北海道・離島は税抜1,200円）です。<br\/>ご購入金額が税抜10,000円以上の場合は、送料弊社負担とさせていただきます。<\/p>"
+          }
+        },
+        "section_c6XB8r": {
+          "type": "section",
+          "settings": {
+            "question": "どの配送業者を利用していますか？",
+            "answer": "<p>主にヤマト運輸、佐川急便、西濃運輸、日本郵便を利用しています。お客様の地域や容量により選択いたします。<\/p>"
+          }
+        },
+        "section_LeM3r3": {
+          "type": "section",
+          "settings": {
+            "question": "海外への配送は可能ですか？",
+            "answer": "<p>海外への配送も承っております。国や地域により配送料や配送時間が異なりますので、購入時にご確認下さい。<\/p>"
+          }
+        },
+        "section_g7cdBf": {
+          "type": "section",
+          "settings": {
+            "question": "注文後に配送先住所を変更できますか？",
+            "answer": "<p>ご注文後の住所変更は、発送前であれば可能です。お早めにカスタマーサポートまでご連絡ください。<\/p>"
+          }
+        },
+        "section_K3J8Rr": {
+          "type": "section",
+          "settings": {
+            "question": "配送状況を確認する方法はありますか？",
+            "answer": "<p>はい、商品発送後に追跡番号をメールでお知らせします。配送業者の追跡サービスを利用して、配送状況を確認できます。<\/p>"
+          }
+        },
+        "section_CcNACR": {
+          "type": "section",
+          "settings": {
+            "question": "配送先を複数指定できますか？",
+            "answer": "<p>一回のご注文につき、一つの配送先のみ指定可能です。異なる配送先へ送る場合は、それぞれ別々にご注文ください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "section_i76GkD",
+        "section_UnJfhJ",
+        "section_c6XB8r",
+        "section_LeM3r3",
+        "section_g7cdBf",
+        "section_K3J8Rr",
+        "section_CcNACR"
+      ],
+      "settings": {
+        "heading": "配送について",
+        "form-head": "",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin-x-x": 0,
+        "active-bg-color": "#cacaca"
+      }
+    },
+    "faqs_Y3Kjdq": {
+      "type": "faqs",
+      "blocks": {
+        "section_UMXyJE": {
+          "type": "section",
+          "settings": {
+            "question": "使用できるクレジットカードの種類を教えてください。",
+            "answer": "<p>以下の主要なクレジットカードをご利用いただけます。<br\/><br\/>・Visa（ビザ）<br\/>・MasterCard（マスターカード）<br\/>・American Express（アメリカン・エキスプレス）<br\/>また、デビットカードやプリペイドカードも、これらのブランドで発行されているものであればご利用いただけます。詳しくはご利用のカード発行会社にお問い合わせください。<\/p>"
+          }
+        },
+        "section_G4JhC3": {
+          "type": "section",
+          "settings": {
+            "question": "どのような支払い方法がありますか？",
+            "answer": "<p>クレジットカード、GooglePay 、ApplePay、PayPalがご利用いただけます。<\/p>"
+          }
+        },
+        "section_EUqPbF": {
+          "type": "section",
+          "settings": {
+            "question": "クレジットカードの支払いは安全ですか？",
+            "answer": "<p>クレジットカード支払いは非常に安全です。当サイトではSSL（Secure Sockets Layer）暗号化技術を使用しており、すべてのクレジットカード情報は暗号化されて安全に処理されます。さらに、ShopifyはPCI DSS（Payment Card Industry Data Security Standard）の準拠をしており、厳格なセキュリティ基準を満たしていますので、安心してご利用いただけます。<\/p>"
+          }
+        },
+        "section_zKQt73": {
+          "type": "section",
+          "settings": {
+            "question": "代金引換は利用できますか？",
+            "answer": "<p>現在、代金引換のご利用を中止しています。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "section_UMXyJE",
+        "section_G4JhC3",
+        "section_EUqPbF",
+        "section_zKQt73"
+      ],
+      "settings": {
+        "heading": "お支払いについて",
+        "form-head": "",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin-x-x": 0,
+        "active-bg-color": "#cacaca"
+      }
+    },
+    "faqs_VnHaQV": {
+      "type": "faqs",
+      "blocks": {
+        "section_U4nKxb": {
+          "type": "section",
+          "settings": {
+            "question": "定期購入を利用していますが、いつ届くかどうすれば確認できますか？",
+            "answer": "<p>お客様アカウントページでサブスクリプションの内容を確認、次回注文日の変更をする事が可能です。<\/p>"
+          }
+        },
+        "section_phmFna": {
+          "type": "section",
+          "settings": {
+            "question": "次回注文日の変更の変更は何日前から指定できますか？",
+            "answer": "<p>次回注文日の変更は最短で三日前から変更可能となっております。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "section_U4nKxb",
+        "section_phmFna"
+      ],
+      "settings": {
+        "heading": "ご注文お手続きについて",
+        "form-head": "",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin-x-x": 0,
+        "active-bg-color": "#000000"
+      }
+    },
+    "faqs_3EqcxG": {
+      "type": "faqs",
+      "blocks": {
+        "section_BGdjqD": {
+          "type": "section",
+          "settings": {
+            "question": "注文のキャンセルはできますか？",
+            "answer": "<p>注文キャンセルは発送前に限り可能です。マイアカウントの「注文履歴」からキャンセル手続きを行ってください。<\/p>"
+          }
+        },
+        "section_3gjtNY": {
+          "type": "section",
+          "settings": {
+            "question": "商品が届いた後でも返品できますか？",
+            "answer": "<p>商品到着後7日以内であれば、未開封・未使用の場合に限り返品を受け付けております。返品方法についてはカスタマーサービスにお問い合わせください。<\/p>"
+          }
+        },
+        "section_3xbhjr": {
+          "type": "section",
+          "settings": {
+            "question": "返品にかかる送料はどうなりますか？",
+            "answer": "<p>不良品や誤配送の場合、返品送料は当社が負担いたします。お客様の都合による返品の場合は、お客様のご負担となります。<\/p>"
+          }
+        },
+        "section_437Cfm": {
+          "type": "section",
+          "settings": {
+            "question": "返品後の返金はどのように行われますか？",
+            "answer": "<p>返品商品が当社に到着し、検品が完了次第、元の支払い方法にて返金いたします。クレジットカードの場合、返金が反映されるまでに数日かかる場合があります。<\/p>"
+          }
+        },
+        "section_ydKBy3": {
+          "type": "section",
+          "settings": {
+            "question": "セール品の返品はできますか？",
+            "answer": "<p>セール品は返品・交換の対象外となります。ただし、不良品や誤配送の場合はこの限りではありません。<\/p>"
+          }
+        },
+        "section_8GqNPN": {
+          "type": "section",
+          "settings": {
+            "question": "返品手続きを開始するにはどうすればよいですか？",
+            "answer": "<p> マイアカウントの「注文履歴」から返品手続きを開始できます。返品フォームに必要事項を記入し、商品と一緒に返送してください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "section_BGdjqD",
+        "section_3gjtNY",
+        "section_3xbhjr",
+        "section_437Cfm",
+        "section_ydKBy3",
+        "section_8GqNPN"
+      ],
+      "settings": {
+        "heading": "キャンセル・返品・交換について",
+        "form-head": "",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin-x-x": 0,
+        "active-bg-color": "#cacaca"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_x8MzqY",
+    "rich_text_Gtnnh7",
+    "faqs_pRDMEy",
+    "faqs_VghMit",
+    "faqs_Y3Kjdq",
+    "faqs_VnHaQV",
+    "faqs_3EqcxG"
+  ]
+}

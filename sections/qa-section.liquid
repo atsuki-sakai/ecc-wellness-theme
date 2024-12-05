@@ -1,0 +1,64 @@
+<div class="tw-bg-white">
+  <div class="tw-mx-auto tw-max-w-[1100px] tw-px-6 tw-py-16 sm:tw-py-24 lg:tw-px-8">
+    <div class="tw-flex tw-flex-col tw-items-center tw-gap-6 tw-mx-auto tw-max-w-3xl tw-text-center">
+      <h2 class="tw-text-4xl tw-font-semibold tw-tracking-tight tw-text-gray-900">{{ section.settings.heading }}</h2>
+      <p class=" tw-text-xl tw-leading-9 tw-text-gray-600">{{ section.settings.description }}</p>
+    </div>
+    <div class="tw-mt-20 tw-max-w-[1100px] tw-mx-auto tw-flex tw-flex-col tw-items-center">
+      <dl class="tw-space-y-16 sm:tw-grid sm:tw-grid-cols-2 sm:tw-gap-x-6 sm:tw-gap-y-16 sm:tw-space-y-0 lg:tw-gap-x-10">
+        {% for block in section.blocks %}
+          <div>
+            <dt class="tw-text-2xl tw-font-semibold tw-leading-7 tw-text-gray-900">{{ forloop.index }}. {{ block.settings.question }}</dt>
+            <dd class="tw-mt-4 tw-text-xl tw-leading-7 tw-text-gray-600">{{ block.settings.answer }}</dd>
+          </div>
+        {% endfor %}
+      </dl>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Q&A",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "よくある質問について"
+        },
+        {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description",
+            "default": "<p>ご不明な点がありましたら、お気軽にお問い合わせください。</p>"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "question",
+            "name": "Question",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "question",
+                    "label": "Question",
+                    "default": "どのようなサービスを提供していますか？"
+                },
+                {
+                    "type": "richtext",
+                    "id": "answer",
+                    "label": "Answer",
+                    "default": "<p>化粧品のメイクアップを行うサービスを提供しています。</p>"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Q&A"
+      }
+    ]
+  }
+{% endschema %}

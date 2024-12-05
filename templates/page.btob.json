@@ -1,0 +1,144 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "original_form_nbghQ8": {
+      "type": "original-form",
+      "blocks": {
+        "original_form_LmbMYD": {
+          "type": "original-form",
+          "settings": {
+            "title": "会社名",
+            "placeholder": "株式会社 サンプル",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_xWHfnA": {
+          "type": "original-form",
+          "settings": {
+            "title": "担当者名(姓)",
+            "placeholder": "山田",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_GKfq4U": {
+          "type": "original-form",
+          "settings": {
+            "title": "担当者(名)",
+            "placeholder": "太郎",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_ty7cPg": {
+          "type": "original-form",
+          "settings": {
+            "title": "電話番号",
+            "placeholder": "090-1234-5678",
+            "form-type": "phone",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_XYqmJA": {
+          "type": "original-form",
+          "settings": {
+            "title": "メールアドレス",
+            "placeholder": "sample@email.com",
+            "form-type": "email",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_mQm3XA": {
+          "type": "original-form",
+          "settings": {
+            "title": "配送先 - 郵便番号",
+            "placeholder": "619-2133",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_3UBQXy": {
+          "type": "original-form",
+          "settings": {
+            "title": "配送先 - 都道府県",
+            "placeholder": "大阪府",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_UBQWkk": {
+          "type": "original-form",
+          "settings": {
+            "title": "配送先 - 市区町村",
+            "placeholder": "大阪市中央区",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_VkgNim": {
+          "type": "original-form",
+          "settings": {
+            "title": "配送先 - 市区町村以下の住所",
+            "placeholder": "10-1",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": true
+          }
+        },
+        "original_form_P3C3Dn": {
+          "type": "original-form",
+          "settings": {
+            "title": "配送先住所 - 建物名・部屋番号",
+            "placeholder": "sample@email.com",
+            "form-type": "text",
+            "select-options": "有り-無し",
+            "required": false
+          }
+        }
+      },
+      "block_order": [
+        "original_form_LmbMYD",
+        "original_form_xWHfnA",
+        "original_form_GKfq4U",
+        "original_form_ty7cPg",
+        "original_form_XYqmJA",
+        "original_form_mQm3XA",
+        "original_form_3UBQXy",
+        "original_form_UBQWkk",
+        "original_form_VkgNim",
+        "original_form_P3C3Dn"
+      ],
+      "settings": {
+        "form-id": "BtoB卸の新規お問い合わせ",
+        "heading": "卸販売事業者　お申し込みフォーム",
+        "form-head": "以下のフォームを全てご入力をお願い致します。問い合わせを受け付けましたらこちらからご連絡させて頂きますのでお待ちくださいませ。",
+        "form-desc": "通常の場合、お問い合わせから1~3営業日以内にご返信させて頂きます。",
+        "required-text": "必須",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "original_form_nbghQ8"
+  ]
+}

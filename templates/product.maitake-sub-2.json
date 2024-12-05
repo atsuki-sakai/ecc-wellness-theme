@@ -1,0 +1,201 @@
+{
+  "sections": {
+    "hidden_judge_me_reviews_cNktwQ": {
+      "type": "hidden-judge-me-reviews",
+      "settings": {}
+    },
+    "subscription_fix_patch_2024_11_YYKFHU": {
+      "type": "subscription-fix-patch__2024_11",
+      "settings": {
+        "subscription_product": "maitake"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_VhbzL8": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_pUJDff": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "go_sub_subscription_gosub_product_block_KnArJ6": {
+          "type": "shopify:\/\/apps\/go-sub-subscription\/blocks\/gosub-product-block\/87efaa1b-acee-458e-9de2-d43423c133fa",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_VhbzL8",
+        "price_pUJDff",
+        "variant_picker",
+        "quantity_selector",
+        "go_sub_subscription_gosub_product_block_KnArJ6",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "1720081751ee763c0d": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ndeRbb": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ndeRbb"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_collection_anNPDg": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "feature-collections",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "banner_VJkbdj": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "https:\/\/www.instagram.com\/ecc_wellness\/",
+        "sp-banner-jp": "shopify:\/\/shop_images\/3_eedc78f8-c35a-47db-9d98-d87fbb11fd88.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/3_eedc78f8-c35a-47db-9d98-d87fbb11fd88.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banner_YE7EfW": {
+      "type": "banner",
+      "settings": {
+        "title": "アンバサダー会員募集",
+        "subtitle": "",
+        "link": "shopify:\/\/pages\/contact",
+        "sp-banner-jp": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/banner-amb.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/banner-amb.png",
+        "sp-banner-zh": "shopify:\/\/shop_images\/banner-amb.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/banner-amb.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "hidden_judge_me_reviews_cNktwQ",
+    "subscription_fix_patch_2024_11_YYKFHU",
+    "main",
+    "1720081751ee763c0d",
+    "featured_collection_anNPDg",
+    "related-products",
+    "banner_VJkbdj",
+    "banner_YE7EfW"
+  ]
+}

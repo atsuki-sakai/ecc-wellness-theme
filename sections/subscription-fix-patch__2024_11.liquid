@@ -1,0 +1,216 @@
+<style>
+  .subscription-fix-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .subscription-fix-section__text {
+      font-size: 1.5rem;
+      font-weight: 600;
+  }
+</style>
+
+<!-- デバッグモードはテーマ設定から編集 -->
+{% unless settings.is_debug %}
+  {% if section.settings.subscription_product != blank %}
+    {% assign redirect_url = '' %}
+    {% if section.settings.subscription_product == 'maitake' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains 'ECC顧問'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/maitake-subscription-1' %}
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/maitake-subscription-2' %}
+      {% elsif customer.tags contains '一般会員' %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/maitake-subscription' %}
+      {% endif %}
+    {% elsif section.settings.subscription_product == 'ploporis_liquid' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains '提携園'
+        or customer.tags contains 'ECC顧問'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-extract-subscription-1' %}
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-extract-subscription-2' %}
+      {% else %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-extract-subscription' %}
+      {% endif %}
+    {% elsif section.settings.subscription_product == 'ploporis_capsules' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains 'ECC顧問'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-subscription-1' %}
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-subscription-2' %}
+      {% else %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/green-propolis-subscription' %}
+      {% endif %}
+    {% elsif section.settings.subscription_product == 'p&e80' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains 'ECC顧問'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/p-ec80-subscription-1' %}
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/p-ec80-subscription-2' %}
+      {% else %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/p-ec80-subscription' %}
+      {% endif %}
+    {% elsif section.settings.subscription_product == 'elara100_10g' %}
+
+    {% elsif section.settings.subscription_product == 'elara100_50g' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains 'ECC顧問'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/elara-50g-subscription-1' %}
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/elara-50g-subscription-2' %}
+      {% else %}
+        {% assign redirect_url = 'https://ecc-wellness.com/products/elara-50g-subscription' %}
+      {% endif %}
+    {% elsif section.settings.subscription_product == 'elara100_sheetmask' %}
+      {% if customer.tags contains 'ECCスタッフ・役員'
+        or customer.tags contains 'HT'
+        or customer.tags contains '幼推講師'
+        or customer.tags contains '外語講師'
+        or customer.tags contains 'ECCスタッフ紹介'
+        or customer.tags contains '学園スタッフ'
+        or customer.tags contains '学園スタッフ紹介'
+        or customer.tags contains 'ECC顧問'
+      %}
+        <script>
+          console.log("sheetmask1");
+        </script>
+      {% elsif customer.tags contains 'ECC役員紹介'
+        or customer.tags contains 'HT紹介'
+        or customer.tags contains '幼推講師紹介'
+        or customer.tags contains '外語紹介'
+        or customer.tags contains 'ECCジュニア生・生徒保護者'
+        or customer.tags contains 'ECC（外語）受講生・生徒'
+        or customer.tags contains 'ベストワンオーナー'
+        or customer.tags contains 'アンバサダー'
+        or customer.tags contains '提携園'
+      %}
+        <script>
+          console.log("sheetmask2");
+        </script>
+      {% else %}
+        <script>
+          console.log("sheetmask");
+        </script>
+      {% endif %}
+    {% endif %}
+
+    {% if redirect_url != '' %}
+      <script>
+        if (!window.location.search.includes('redirected=true')) {
+          window.location.href = "{{ redirect_url }}?redirected=true";
+        }
+      </script>
+    {% endif %}
+  {% endif %}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Subscription Fix Redirect",
+  "settings": [
+    {
+      "type": "select",
+      "id": "subscription_product",
+      "label": "Subscription Product",
+      "info": "このセクションは定期購入のテンプレートに追加することで、顧客のタグに対応した定期購入ページへリダイレクトします。※リダイレクトの仕様上、設定からDEBUG MODEをONにしてから設定してください。",
+      "options": [
+        { "value": "maitake", "label": "Maitake" },
+        { "value": "ploporis_liquid", "label": "Ploporis Liquid" },
+        { "value": "ploporis_capsules", "label": "Ploporis Capsules" },
+        { "value": "p&e80", "label": "P&E80" },
+        { "value": "elara100_10g", "label": "Elara100 10g" },
+        { "value": "elara100_50g", "label": "Elara100 50g" },
+        { "value": "elara100_sheetmask", "label": "Elara100 Sheetmask" },
+        { "value": "default_plan", "label": "Default Plan" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subscription Fix Redirect"
+    }
+  ]
+}
+{% endschema %}

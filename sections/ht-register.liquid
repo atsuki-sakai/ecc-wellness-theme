@@ -1,0 +1,448 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<script type="text/javascript" src="{{ 'custom-register-logic.js' | asset_url }}" defer></script>
+
+<style>
+  .code-help {
+    font-size: 11px;
+    margin-top: 2rem;
+    padding: 0;
+    text-align: start;
+    color: red;
+    letter-spacing: 1px;
+    border: solid red 1px;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    background: #fff0f3;
+  }
+    .teacher-code__input {
+    display: none !important;
+  }
+  .teacher-code__input.show {
+    display: block !important;
+  }
+  .teacher-code_help-text {
+    display: none;
+    font-size: 1.2rem;
+  }
+  .ecc-affiliate {
+    width: 100%;
+    display: flex;
+    margin: 1.2rem 0;
+  }
+</style>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="customer register section-{{ section.id }}-padding">
+  <svg style="display: none">
+    <symbol id="icon-error" viewBox="0 0 13 13">
+      <circle
+        cx="6.5"
+        cy="6.50049"
+        r="5.5"
+        stroke="white"
+        stroke-width="2" />
+      <circle
+        cx="6.5"
+        cy="6.5"
+        r="5.5"
+        fill="#EB001B"
+        stroke="#EB001B"
+        stroke-width="0.7" />
+      <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white" />
+      <path
+        d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z"
+        fill="white"
+        stroke="#EB001B"
+        stroke-width="0.7">
+    </symbol>
+  </svg>
+  <h1 style="font-size: 2rem; margin-bottom: 1rem;">
+    {{ 'customer.register.ht-register-title' | t }}
+  </h1>
+  <style>
+    .ht-register-list {
+      margin: 2rem 0 !important;
+      padding: 0 !important;
+      list-style: none;
+    }
+    .ht-register-list li {
+      display: flex;
+      margin-bottom: 1rem;
+      color: cornflowerblue;
+    }
+    .worning_title {
+      margin-top: 1rem;
+      display: inline-block;
+      text-align: start;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    .worning_text {
+      display: inline-block;
+      text-align: start;
+      margin-right: 1rem;
+      font-size:1.2rem;
+    }
+  </style>
+  <div>
+    <p>{{ section.settings.desc }}</p>
+    <h4 class="worning_title">{{ section.settings.worning_title }}</h4>
+    <p class="worning_text">
+      {{ section.settings.worning_text1 }}
+    </p>
+    <p class="worning_text" style="margin-top: 1rem;">
+      {{ section.settings.worning_text2 }}
+    </p>
+  </div>
+
+  <div class="field">
+    <input
+      type="text"
+      name="customer[last_name]"
+      id="RegisterForm-LastName"
+      {% if form.last_name %}
+        value="{{ form.last_name }}"
+      {% endif %}
+      autocomplete="family-name"
+      placeholder="{{ 'customer.register.last_name' | t }}"
+    >
+    <label for="RegisterForm-LastName">
+      {{ 'customer.register.last_name' | t }}
+    </label>
+  </div>
+  <div class="field">
+    <input
+      type="text"
+      name="customer[first_name]"
+      id="RegisterForm-FirstName"
+      {% if form.first_name %}
+        value="{{ form.first_name }}"
+      {% endif %}
+      autocomplete="given-name"
+      placeholder="{{ 'customer.register.first_name' | t }}"
+    >
+    <label for="RegisterForm-FirstName">
+      {{ 'customer.register.first_name' | t }}
+    </label>
+  </div>
+  <div class="field">
+    <input
+      type="text"
+      name="customer[email]"
+      id="RegisterForm-email"
+      {% if form.email %}
+        value="{{ form.email }}"
+      {% endif %}
+      spellcheck="false"
+      autocapitalize="off"
+      autocomplete="email"
+      aria-required="true"
+      {% if form.errors contains 'email' %}
+        aria-invalid="true"
+        aria-describedby="RegisterForm-email-error"
+      {% endif %}
+      placeholder="{{ 'customer.register.email' | t }}"
+    >
+    <label for="RegisterForm-email">
+      {{ 'customer.register.email' | t }}
+    </label>
+  </div>
+  <div class="field">
+    <input
+      type="text"
+      name="customer[password]"
+      id="RegisterForm-password"
+      aria-required="true"
+      placeholder="{{ 'customer.register.password' | t }}"
+    >
+    <label for="RegisterForm-password">
+      {{ 'customer.register.password' | t }}
+    </label>
+  </div>
+  <div class="ecc-affiliate">
+    <input type="checkbox" id="ecc-affiliate-checkbox">
+    <span>ECCの関係者ですか？</span>
+  </div>
+  <div id="code-input-container" class="field" style="margin-top: 0; display: none;">
+    <input
+      type="text"
+      name="customer[code]"
+      id="RegisterForm-code"
+      spellcheck="false"
+      autocapitalize="off"
+      aria-required="true"
+      placeholder="{{ 'customer.register.customer_code' | t }}"
+    >
+    <label for="RegisterForm-Code">
+      {{ 'customer.register.customer_code' | t }}
+    </label>
+  </div>
+  <input
+    type="hidden"
+    id="customer_tags"
+    name="customer[tags]"
+    value="一般会員"
+  >
+  <div class="field teacher-code__input" style="margin-top: 1rem;">
+    <input
+      type="text"
+      id="teacher-code"
+      spellcheck="false"
+      autocapitalize="off"
+      aria-required="true"
+      placeholder="講師コード"
+      name="customer[note][講師・氏名・教室コード]"
+    >
+    <label for="teacher-code"> 講師・氏名・教室コード </label>
+  </div>
+  <div class="field">
+    <input type="text" name="zip" id="RegisterForm-zip" placeholder="106-0032">
+    <label for="RegisterForm-zip">郵便番号</label>
+  </div>
+  <div class="field">
+    <input type="text" name="province" id="RegisterForm-province" placeholder="東京都">
+    <label for="RegisterForm-province">都道府県</label>
+  </div>
+  <div class="field">
+    <input type="text" name="city" id="RegisterForm-city" placeholder="東京">
+    <label for="RegisterForm-city">市区町村</label>
+  </div>
+
+  <div class="field">
+    <input type="text" name="address1" id="RegisterForm-address1" placeholder="東京都港区六本木1-1-1">
+    <label for="RegisterForm-address1">住所 1</label>
+  </div>
+
+  <div class="field">
+    <input type="text" name="address2" id="RegisterForm-address2" placeholder="ビルディング101">
+    <label for="RegisterForm-address2">住所 2</label>
+  </div>
+
+  <div class="field" style="display:none;">
+    <input type="text" name="country" id="RegisterForm-country" placeholder="JP" value="JP">
+    <label for="RegisterForm-country">国コード</label>
+  </div>
+  <div class="field">
+    <input type="text" name="phone" id="RegisterForm-phone" placeholder="03-1234-5678">
+    <label for="RegisterForm-phone">電話番号</label>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <input name="confirm" type="checkbox" id="confirmCheckbox" checked>
+    <label for="confirmCheckbox">
+      {{ section.settings.confirm }}
+    </label>
+  </div>
+  <button type="submit" id="ht-register-submit-button">
+    {{ section.settings.submit }}
+  </button>
+</div>
+
+<script>
+
+  
+  function validateFormData(formData) {
+    const errors = {};
+  
+    // 必須項目のチェック関数
+    const isRequired = (value) => value && value.trim() !== '';
+  
+    // 名前のバリデーション
+    if (!isRequired(formData.firstName)) errors.firstName = "名を入力してください。";
+    if (!isRequired(formData.lastName)) errors.lastName = "姓を入力してください。";
+  
+    // メールアドレスのバリデーション
+    if (!isRequired(formData.email)) {
+      errors.email = "メールアドレスを入力してください。";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "有効なメールアドレスを入力してください。";
+    }
+  
+    // パスワードのバリデーション
+    if (!isRequired(formData.password)) {
+      errors.password = "パスワードを入力してください。";
+    } else if (formData.password.length < 8) {
+      errors.password = "パスワードは8文字以上で入力してください。";
+    }
+  
+    // アドレスのバリデーション
+    if (!isRequired(formData.address.address1)) errors.address1 = "住所（第一行目）を入力してください。";
+    if (!isRequired(formData.address.city)) errors.city = "市区町村を入力してください。";
+    if (!isRequired(formData.address.province)) errors.province = "都道府県を入力してください。";
+    if (!isRequired(formData.address.zip)) {
+      errors.zip = "郵便番号を入力してください。";
+    }
+  
+    if (!isRequired(formData.address.country)) errors.country = "国名を入力してください。";
+    if (!isRequired(formData.address.phone)) {
+      errors.phone = "電話番号を入力してください。";
+    } else if (!/^\d{10,11}$/.test(formData.address.phone)) {
+      errors.phone = "有効な電話番号を入力してください（例: 09012345678）。";
+    }
+  
+    // エラーがあればオブジェクトを返し、なければ true を返す
+    return Object.keys(errors).length === 0 ? true : errors;
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registration-form');
+    const submitButton = document.getElementById('ht-register-submit-button');
+    const checkbox = document.getElementById('confirmCheckbox');
+    const teacherCodeInput = document.getElementById('teacher-code'); // 追加
+  
+    function handleFormSubmit(event) {
+      event.preventDefault(); // デフォルト送信を防止
+  
+      // チェックボックスの状態に応じたNoteの設定
+      let note = checkbox.checked ? "アカウント作成-同意" : "アカウント作成-拒否";
+      
+      // teacher-codeの値をnoteに改行で追加
+      if (teacherCodeInput && teacherCodeInput.value.trim() !== "") {
+        note += `\n講師コード: ${teacherCodeInput.value.trim()}`;
+      }
+  
+      const customerTags = document.getElementById('customer_tags').value || ""; // 値が取得できない場合の対応
+      const tags = `${customerTags},シートマスクプレゼント対象者`;
+  
+      const formData = {
+        firstName: document.getElementById('RegisterForm-FirstName').value.trim(),
+        lastName: document.getElementById('RegisterForm-LastName').value.trim(),
+        email: document.getElementById('RegisterForm-email').value.trim(),
+        password: document.getElementById('RegisterForm-password').value.trim(),
+        tags: tags,
+        note: note,  // 改行された note を設定
+        address: {
+          address1: document.getElementById('RegisterForm-address1').value.trim(),
+          address2: document.getElementById('RegisterForm-address2').value.trim(),
+          city: document.getElementById('RegisterForm-city').value.trim(),
+          province: document.getElementById('RegisterForm-province').value.trim(),
+          zip: document.getElementById('RegisterForm-zip').value.trim(),
+          country: document.getElementById('RegisterForm-country').value.trim(),
+          phone: document.getElementById('RegisterForm-phone').value.trim()
+        }
+      };
+  
+      const validationResult = validateFormData(formData);
+      if (validationResult === true) {
+        console.log("バリデーション成功");
+      } else {
+        console.log("バリデーションエラー:", validationResult);
+         const errorMessage = Object.values(validationResult).join("\n");
+        alert(errorMessage);
+        return;
+      }
+  
+      
+  
+      // APIリクエスト
+      fetch('https://ot4bg0k330.execute-api.ap-northeast-1.amazonaws.com/prod/ht-register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(response => {
+        console.log("APIレスポンス:", response);
+        if(response.error){
+          alert(response.message + response.error);
+        }else{
+          alert(response.message);
+          // if (response.message.includes("メールアドレスはすでに登録されています。")) {
+          //   alert('hello');
+          // }
+          window.location.href = "/";
+        }
+      })
+      .catch(error => {
+        console.error("APIエラー:", error);
+      });
+    }
+  
+    // ボタンにイベントリスナーを追加
+    submitButton.addEventListener('click', handleFormSubmit);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "HT Register",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "text",
+      "id": "desc",
+      "default": "以下の手順でプレゼントの受け取りに必要な情報を記入して下さい。",
+      "label": "受け取り方法の説明"
+    },
+    {
+      "type": "text",
+      "id": "worning_title",
+      "default": "注意事項",
+      "label": "注意事項"
+    },
+    {
+      "type": "liquid",
+      "id": "worning_text1",
+      "default": "<p>1. 本キャンペーンは、ECCホームティーチャー限定です。ECCホームティーチャー以外の方はご参加いただけませんのでご注意ください。ECCホームティーチャーの方は、キャンペーン参加の際に「招待コード」と「講師コード」の入力が必要です。 忘れずにご入力をお願いいたします。</p>",
+      "label": "STEP1 - Text"
+    },
+     {
+      "type": "liquid",
+      "id": "worning_text2",
+      "default": "<p>2. ECCホームティーチャーの方は、キャンペーン参加の際に「招待コード」と「講師コード」の入力が必要です。 忘れずにご入力をお願いいたします。</p>",
+      "label": "STEP2 - Text"
+    },
+    {
+      "type": "text",
+      "id": "confirm",
+      "default": "上記の情報で同時にアカウント作成する。",
+      "label": "アカウント作成同意テキスト"
+    },
+    {
+      "type": "text",
+      "id": "submit",
+      "default": "配送住所を入力する",
+      "label": "送信ボタンのテキスト"
+    },
+  ],
+  "presets": [
+    {
+      "name": "HT Register"
+    }
+  ]
+}
+{% endschema %}

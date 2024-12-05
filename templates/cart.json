@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "skip_bussiness_days": 3,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "free_shipping_C64p4c": {
+          "type": "free_shipping",
+          "settings": {}
+        },
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "customer_content_CLbMrB": {
+          "type": "customer-content",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "free_shipping_C64p4c",
+        "subtotal",
+        "customer_content_CLbMrB",
+        "buttons"
+      ],
+      "settings": {
+        "header-desc": "<p>次回から住所やお支払い情報の入力が不要になり、スムーズにお買い物を楽しめます。さらに、購入履歴の確認やお気に入り商品の管理も簡単に！ぜひこの機会にご登録ください。<\/p>",
+        "purchase-text": "購入手続き",
+        "member-customer": "会員のお客様",
+        "logged": "ログイン中です",
+        "checkout": "チェックアウト",
+        "login-desc": "既に会員登録されている方は、こちらからログインできます。",
+        "login-text": "ログイン",
+        "register-text": "会員登録されていないお客様",
+        "membership-text": "会員登録を行う",
+        "or-text": "または",
+        "not-membership-checkout-text": "会員登録せずにチェックアウトする",
+        "membership-desc": "会員登録を行うと、配送先住所などの情報を自動的に入力でき、便利にお買い物いただけます。",
+        "color_scheme": "scheme-1",
+        "border_price": 1000,
+        "for_free_text": "送料無料まであと",
+        "free_text": "送料無料！",
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    },
+    "sumita_and_gosub_patch_8xC8KA": {
+      "type": "sumita_and_gosub_patch",
+      "settings": {}
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer",
+    "sumita_and_gosub_patch_8xC8KA"
+  ]
+}

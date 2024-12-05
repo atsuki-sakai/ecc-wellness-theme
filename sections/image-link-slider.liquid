@@ -1,0 +1,400 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ "swiper-bundle.min.js" | asset_url }}" defer></script>
+
+{% style %}
+  .main-visual {
+    position: relative;
+    width: 100%;
+    height: 55vw;
+    max-height: 660px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('{{ section.settings.bg_img | image_url }}');
+    background-size: cover;
+    background-position: center;
+  }
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    justify-content: center;
+    align-items: center;
+  }
+  .main-visual__link {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 1;
+    max-width: {{ settings.page_width }}px;
+  }
+  .main-visual__link img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+  }
+  .swiper-horizontal > .swiper-pagination-progressbar,
+  .swiper-pagination-progressbar.swiper-pagination-horizontal {
+    background: rgba(255, 255, 255, 0.5);
+    height: 5px;
+    width: 100%;
+    max-width: {{ settings.page_width }}px;
+    position: absolute;
+    top: unset;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .slide-progress {
+    display: block !important;
+    width: 100%;
+    height: 3px;
+    background-color: {{ section.settings.line_color }};
+    animation: slide-progress 6s linear infinite;
+  }
+
+  @keyframes slide-progress {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .next-img {
+    position: absolute;
+    bottom: 30px;
+    right: 3%;
+    z-index: 2;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 1s ease-in-out
+    , transform 1s ease-in-out
+    , transform 0.3s ease-in-out;
+    animation: sway 3s ease-in-out infinite;
+    cursor: pointer;
+  }
+  .next-img.opening-anim {
+    animation: opening-anim 1s ease forwards
+    , sway 3s ease-in-out infinite;
+  }
+  @keyframes opening-anim {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes sway {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  .next-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .next-img img.fade-out {
+    opacity: 0;
+  }
+  @media screen and (max-width: 800px) {
+    .next-img {
+      width: 90px;
+      height: 90px;
+      border: solid 2px white;
+    }
+    .main-visual {
+      height: 400px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .next-img {
+      width: 70px;
+      height: 70px;
+      border: solid 1px white;
+    }
+    .main-visual {
+      height: 400px;
+    }
+  }
+{% endstyle %}
+
+{% assign current_path = request.path %}
+{% assign path_parts = current_path | split: '/' %}
+{% assign country_code = path_parts[1] %}
+
+<div class="slide-progress" id="slide-progress"></div>
+<div class="main-visual">
+  <div
+    id="next-img"
+    class="next-img"
+    style="opacity: 0; transform: translateY(20px); transition: opacity 1s ease-in-out, transform 1s ease-in-out;"
+  >
+    {% if country_code == 'en' %}
+      <img
+        src="{{ section.blocks[1].settings.pc_img_slide-en | image_url }}"
+        alt="placeholder"
+        width="1620"
+        height="820"
+      >
+    {% elsif country_code == 'zh' %}
+      <img
+        src="{{ section.blocks[1].settings.pc_img_slide-zh | image_url }}"
+        alt="placeholder"
+        width="1620"
+        height="820"
+      >
+    {% else %}
+      <img
+        src="{{ section.blocks[1].settings.pc_img_slide-jp | image_url }}"
+        alt="placeholder"
+        width="1620"
+        height="820"
+      >
+    {% endif %}
+  </div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide" style="display: flex !important;">
+          <a
+            class="main-visual__link"
+            {% if block.settings.link != blank %}
+              href="{{ block.settings.link }}"
+            {% endif %}
+          >
+            {% if country_code == 'en' %}
+              <picture>
+                <source
+                  media="(max-width: 600px)"
+                  srcset="{{ block.settings.sp_img_slide-en | image_url }}"
+                  width="1032"
+                  height="900"
+                >
+                <source
+                  media="(min-width: 601px)"
+                  srcset="{{ block.settings.pc_img_slide-en | image_url }}"
+                  width="1620"
+                  height="820"
+                >
+                <img
+                  src="{{ block.settings.pc_img_slide-en | image_url }}"
+                  alt="placeholder"
+                  width="1620"
+                  height="820"
+                >
+              </picture>
+            {% elsif country_code == 'zh' %}
+              <picture>
+                <source
+                  media="(max-width: 600px)"
+                  srcset="{{ block.settings.sp_img_slide-zh | image_url }}"
+                  width="1032"
+                  height="900"
+                >
+                <source
+                  media="(min-width: 601px)"
+                  srcset="{{ block.settings.pc_img_slide-zh | image_url }}"
+                  width="1620"
+                  height="820"
+                >
+                <img
+                  src="{{ block.settings.pc_img_slide-zh | image_url }}"
+                  alt="placeholder"
+                  width="1620"
+                  height="820"
+                >
+              </picture>
+            {% else %}
+              <picture>
+                <source
+                  media="(max-width: 600px)"
+                  srcset="{{ block.settings.sp_img_slide-jp | image_url }}"
+                  width="1032"
+                  height="900"
+                >
+                <source
+                  media="(min-width: 601px)"
+                  srcset="{{ block.settings.pc_img_slide-jp | image_url }}"
+                  width="1620"
+                  height="820"
+                >
+                <img
+                  src="{{ block.settings.pc_img_slide-jp | image_url }}"
+                  alt="placeholder"
+                  width="1620"
+                  height="820"
+                >
+              </picture>
+            {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function resetProgress() {
+    const slideProgress = document.getElementById('slide-progress');
+    slideProgress.style.animation = 'none';
+    slideProgress.offsetHeight;
+    slideProgress.style.animation = '';
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.swiper-container', {
+      type: 'coverflow',
+      loop: true,
+      autoplay: {
+        delay: 4500,
+      },
+      speed: 1500,
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      allowTouchMove: false,
+      on: {
+        slideChangeTransitionStart: function () {
+          const nextIndex = (swiper.activeIndex + 1) % swiper.slides.length;
+          const nextSlideImg = swiper.slides[nextIndex].querySelector('img');
+          const nextImgSrc = nextSlideImg ? nextSlideImg.currentSrc || nextSlideImg.src : '';
+          const nextImgElement = document.querySelector('#next-img img');
+          if (nextImgElement && nextImgSrc) {
+          nextImgElement.classList.add('fade-out');
+          setTimeout(() => {
+            nextImgElement.src = nextImgSrc;
+            nextImgElement.classList.remove('fade-out');
+          }, 300);
+          } else {
+            console.error('Cannot find the next image element or source.');
+          }
+          resetProgress()
+        }
+      }
+    });
+
+    setTimeout(function () {
+        const nextImgDiv = document.querySelector('.next-img');
+        nextImgDiv.style.opacity = '1';
+        nextImgDiv.classList.add('opening-anim');
+      }, 1000);
+
+    document.querySelector('.next-img').addEventListener('click', function () {
+      swiper.slideNext();
+    });
+
+  });
+</script>
+
+{% schema %}
+{
+  "name": "メインビジュアル",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "背景画像",
+      "info": "画像のサイズは1620x820のサイズの画像を設定。"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "default": "#ff6600",
+      "label": "プログレスバーの色"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "img_slide",
+      "name": "スライダー",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "リンク",
+          "info": "スライド画像をクリックした時に遷移URLを設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_img_slide-jp",
+          "label": "(日本)PCスライド画像",
+          "info": "画像のサイズは1620x820のサイズの画像を設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "sp_img_slide-jp",
+          "label": "(日本)SPスライド画像",
+          "info": "画像のサイズは1032x900のサイズの画像を設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_img_slide-en",
+          "label": "(英語)PCスライド画像",
+          "info": "画像のサイズは1620x820のサイズの画像を設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "sp_img_slide-en",
+          "label": "(英語)SPスライド画像",
+          "info": "画像のサイズは1032x900のサイズの画像を設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "pc_img_slide-zh",
+          "label": "(中国語簡体)PCスライド画像",
+          "info": "画像のサイズは1620x820のサイズの画像を設定。"
+        },
+        {
+          "type": "image_picker",
+          "id": "sp_img_slide-zh",
+          "label": "(中国語簡体)SPスライド画像",
+          "info": "画像のサイズは1032x900のサイズの画像を設定。"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "メインビジュアル"
+    }
+  ]
+}
+{% endschema %}

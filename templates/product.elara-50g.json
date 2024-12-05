@@ -1,0 +1,304 @@
+{
+  "sections": {
+    "subscription_fix_patch_2024_11_3rLxeY": {
+      "type": "subscription-fix-patch__2024_11",
+      "settings": {
+        "subscription_product": "elara100_50g"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_qGjnEq": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price_pegaQn": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "go_sub_subscription_gosub_product_block_KnArJ6": {
+          "type": "shopify:\/\/apps\/go-sub-subscription\/blocks\/gosub-product-block\/87efaa1b-acee-458e-9de2-d43423c133fa",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_qGjnEq",
+        "price_pegaQn",
+        "variant_picker",
+        "quantity_selector",
+        "go_sub_subscription_gosub_product_block_KnArJ6",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "1720081751ee763c0d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "172853871420096fdc": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_yiYXe3": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_yiYXe3"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "featured_collection_aGpP4F": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "feature-collections",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "こちらの商品に興味はございませんか？",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "banner_VJkbdj": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/banner_2x_1.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/banner_2x_ee508a22-81c5-4cbc-9361-866a073ef477.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/banner_2x_1.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/banner_2x_ee508a22-81c5-4cbc-9361-866a073ef477.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner_YE7EfW": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-elara100_2x_f45fd1df-1565-49a7-b2aa-40e9be26a827.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-elara100_2x_f45fd1df-1565-49a7-b2aa-40e9be26a827.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-elara100_2x_f45fd1df-1565-49a7-b2aa-40e9be26a827.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-elara100_2x_f45fd1df-1565-49a7-b2aa-40e9be26a827.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner_qy7aYw": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-attention_2x_09aa90d4-aede-453c-9aae-aa955e99ebdb.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-attention_2x_2675668e-0a13-43c7-af9e-52fd630731e2.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-attention_2x_2675668e-0a13-43c7-af9e-52fd630731e2.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-attention_2x_2675668e-0a13-43c7-af9e-52fd630731e2.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner_QWMGbE": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-ecc_2x_3bb94108-812a-4267-8a78-a1b3ce6cd7ea.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-ecc_2x_6a6c4a9e-51f4-4aeb-963e-09e004009841.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-ecc_2x_3bb94108-812a-4267-8a78-a1b3ce6cd7ea.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-ecc_2x_3bb94108-812a-4267-8a78-a1b3ce6cd7ea.png",
+        "pc-banner-zh": "shopify:\/\/shop_images\/img-ecc_2x_6a6c4a9e-51f4-4aeb-963e-09e004009841.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banner_Tpdz4a": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-point_2x_a917cee1-4485-4c8d-89d1-6bcfa8a74418.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-point_2x_a917cee1-4485-4c8d-89d1-6bcfa8a74418.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-point_2x_a917cee1-4485-4c8d-89d1-6bcfa8a74418.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-point_2x_a917cee1-4485-4c8d-89d1-6bcfa8a74418.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "banner_UNhewJ": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-howtouse-step_2x_e03e2da4-f8e5-4faf-9279-6d060a67b73c.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-howtouse-step_2x_e03e2da4-f8e5-4faf-9279-6d060a67b73c.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-howtouse-step_2x_e03e2da4-f8e5-4faf-9279-6d060a67b73c.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-howtouse-step_2x_e03e2da4-f8e5-4faf-9279-6d060a67b73c.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "banner_jUPgxw": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-feedback_2x_d66aee2b-3bad-4463-9ad0-c71fc9b79598.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-feedback_2x_d66aee2b-3bad-4463-9ad0-c71fc9b79598.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-feedback_2x_d66aee2b-3bad-4463-9ad0-c71fc9b79598.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-feedback_2x_d66aee2b-3bad-4463-9ad0-c71fc9b79598.png",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "banner_nYmKkJ": {
+      "type": "banner",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "link": "",
+        "sp-banner-jp": "shopify:\/\/shop_images\/img-voice_2x_a8f0d3b8-34fa-40a1-a5cb-944f5122ed96.png",
+        "pc-banner-jp": "shopify:\/\/shop_images\/img-voice_2x_a8f0d3b8-34fa-40a1-a5cb-944f5122ed96.png",
+        "sp-banner-en": "shopify:\/\/shop_images\/img-voice_2x_a8f0d3b8-34fa-40a1-a5cb-944f5122ed96.png",
+        "pc-banner-en": "shopify:\/\/shop_images\/img-voice_2x_a8f0d3b8-34fa-40a1-a5cb-944f5122ed96.png",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "hidden_judge_me_reviews_xwqbFP": {
+      "type": "hidden-judge-me-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hidden_judge_me_reviews_xwqbFP",
+    "subscription_fix_patch_2024_11_3rLxeY",
+    "main",
+    "1720081751ee763c0d",
+    "172853871420096fdc",
+    "featured_collection_aGpP4F",
+    "related-products",
+    "banner_VJkbdj",
+    "banner_YE7EfW",
+    "banner_qy7aYw",
+    "banner_QWMGbE",
+    "banner_Tpdz4a",
+    "banner_UNhewJ",
+    "banner_jUPgxw",
+    "banner_nYmKkJ"
+  ]
+}

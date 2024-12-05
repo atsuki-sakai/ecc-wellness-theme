@@ -1,0 +1,157 @@
+
+<style>
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  .popup.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .popup-content {
+    position: relative;
+    background-color: white;
+    padding: 4px;
+    border-radius: 8px;
+    margin: 2rem;
+  }
+  .popup-content-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+  }
+  .popup-banner {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .popup-banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  .popup-banner-placeholder {
+    width: 1920px;
+    height: 1080px;
+    background-color: #ffc0c0;
+    color: #ff2c2c;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+
+<div class="popup">
+  <div class="popup-content">
+    <div class="popup-content-close">
+      <button onclick="this.parentElement.parentElement.remove()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="gray" d="m8.4 17l3.6-3.6l3.6 3.6l1.4-1.4l-3.6-3.6L17 8.4L15.6 7L12 10.6L8.4 7L7 8.4l3.6 3.6L7 15.6zm3.6 5q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+      </button>
+    </div>
+    <div class="popup-banner">
+        <a href="{{ section.settings.popup_link }}" onclick="setCookie('{{ section.settings.cookie_name }}', 'true', {{ section.settings.cookie_hold_days }})">
+            {% if section.settings.popup_image != blank %}
+                <img src="{{ section.settings.popup_image | image_url: width: 1000 }}" alt="{{ section.settings.title }}" width="100%" height="100%">
+            {% else %}
+                <div class="popup-banner-placeholder">※画像が設定されていません。ポップアップ画像を設定してください。</div>
+            {% endif %}
+        </a>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('.popup');
+
+        if (getCookie('{{ section.settings.cookie_name }}') !== 'true') {
+            setTimeout(() => {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, {{ section.settings.popup_delay_time }} * 1000);
+        }
+        const closeButton = document.querySelector('.popup-content-close button');
+        closeButton.addEventListener('click', () => {
+            popup.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            setCookie('{{ section.settings.cookie_name }}', 'true', {{ section.settings.cookie_hold_days }});
+        });
+    });
+</script>
+
+{% schema %}
+{
+  "name": "Popup",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "ポップアップ画像"
+    },
+    {
+      "type": "url",
+      "id": "popup_link",
+      "label": "ポップアップリンク"
+    },
+    {
+      "type": "text",
+      "id": "cookie_name",
+      "label": "Cookieのキー",
+      "default": "shopify_popup_cookie",
+      "info": "Cookieのキーを設定します。別々のページでポップアップを表示したい場合は、Cookieのキーを変更してください。"
+    },
+    {
+      "type": "range",
+      "id": "cookie_hold_days",
+      "label": "Cookieの保存期間",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "unit": "日",
+      "default": 7
+    },
+    {
+        "type": "range",
+        "id": "popup_delay_time",
+        "label": "表示までの時間",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "unit": "秒",
+        "default": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Popup"
+    }
+  ]
+}
+{% endschema %}

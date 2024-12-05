@@ -1,0 +1,185 @@
+{% schema %}
+{
+  "name": "Marquee",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Horizontal Padding",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text Content"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 200,
+          "step": 10,
+          "unit": "px",
+          "label": "Image Width",
+          "default": 100
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  /* 背景色、テキスト色、パディングの設定 */
+  #shopify-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+    padding: {{ section.settings.padding_vertical }}px {{ section.settings.padding_horizontal }}px;
+  }
+
+  /* グリッドコンテナの設定 */
+  .marquee-grid-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat({{ section.blocks.size }}, minmax(0, 1fr));
+  }
+
+  /* 各アイテムの設定 */
+  .marquee-item-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 必要に応じて追加のスタイルを設定 */
+  }
+
+  /* 画像のスタイル */
+  .marquee-item-{{ section.id }} img {
+    height: auto;
+    vertical-align: middle;
+    /* 影の強さと方向を調整 */
+    filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  /* /* フローティングアニメーションのキーフレームを定義 */
+  /* @keyframes float-{{ section.id }} {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(2deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  } */
+
+  /* フローティングアニメーションを適用するクラス */
+  /* .floating-image-{{ section.id }} {
+    animation: float-{{ section.id }} 3s ease-in-out infinite;
+    /* アニメーションを滑らかにするためのプロパティ */
+    will-change: transform;
+  }
+
+  /* 各画像に異なるアニメーション遅延を追加して、アニメーションがずれるようにする */
+  /* {% for block in section.blocks %}
+    /* .floating-image-{{ section.id }}.floating-image-{{ block.id }} {
+      animation-delay: {{ forloop.index0 | times: 0.25 }}s;
+    }
+  /* {% endfor %} */
+  /* オプション: フローティングアニメーションを適用するクラス */
+  /* .transparent-image-{{ section.id }} {
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  }
+  .transparent-image-{{ section.id }}:hover {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.7));
+    transition: filter 0.5s ease-in-out;
+  }
+
+  /* ホバー時にアニメーションを一時停止 */
+  {% if section.settings.pause_on_hover %}
+    .marquee-item-{{ section.id }}:hover .floating-image-{{ section.id }} {
+      animation-play-state: paused;
+    }
+  {% endif %} */
+</style>
+
+<div
+  class="tw-w-full tw-max-w-[1100px] tw-mx-auto marquee-grid-{{ section.id }}"
+>
+  {% for block in section.blocks %}
+    <div class="marquee-item-{{ section.id }}">
+      {% if block.type == 'image' %}
+        <img
+          class="floating-image-{{ section.id }} "
+          src="{{ block.settings.image | image_url: width: 150 }}"
+          alt="Image"
+          width="{{ block.settings.image_width }}"
+          height="auto"
+        >
+      {% elsif block.type == 'text' %}
+        <span>{{ block.settings.text }}</span>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>

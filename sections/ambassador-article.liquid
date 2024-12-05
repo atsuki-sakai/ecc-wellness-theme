@@ -1,0 +1,211 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- style -%}
+  .ambassador-article-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: {{ settings.page_width }}px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .ambassador-article-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    color: inherit;
+    transition: transform 0.5s ease;
+    text-decoration: none;
+  }
+  .ambassador-article-item:hover {
+    transform: scale(1.05);
+  }
+
+  .article-info {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .article-date {
+    font-size: 1.4rem;
+    color: #888;
+  }
+  .article-tags {
+    display: flex;
+    gap: 1rem;
+  }
+  .article-tags span {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: #888;
+    background: {{ section.settings.tag_color }};
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    color: #fff;
+  }
+  .ambassador-article-image {
+    width: 100%;
+    height: auto;
+  }
+  .ambassador-article-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .article-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    margin: 0;
+    padding: 0 1rem;
+  }
+  .article-content {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #888;
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.7rem;
+  }
+
+  .more-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+  }
+  .more-button span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #A77F33;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 6px;
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+  @media screen and (min-width: 750px) {
+    .ambassador-article-grid {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0 5rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="rs-section-{{ section.id }}-padding">
+    <div class="section-head page_width scroll-trigger animate--slide-in">
+      <h2>{{ section.settings.heading }}</h2>
+      <span>{{ section.settings.subheading }}</span>
+    </div>
+    <div class="ambassador-article-grid">
+      {% for article in section.settings.blog.articles %}
+        <a class="ambassador-article-item scroll-trigger animate--slide-in" href="{{ article.url }}">
+          <div class="more-button">
+            <span>記事を読む</span>
+          </div>
+          <div class="ambassador-article-image">
+            <img
+              src="{{ article.image.src | image_url }}"
+              alt="{{ article.title }}"
+              width="100%"
+              height="auto"
+            >
+          </div>
+          <div class="article-info">
+            <div class="article-date">
+              <span class="date">{{ article.published_at | date: '%Y/%m/%d' }}</span>
+            </div>
+            <div class="article-tags">
+              {% for tag in article.tags %}
+                <span class="tag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <h2 class="article-title">{{ article.title }}</h2>
+          <p class="article-content">{{ article.content | strip_html | truncate: 100, '...' }}</p>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ambassador Article",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Heading Text",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Subheading Text",
+      "label": "サブタイトル"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "ブログ"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Tag Color",
+      "default": "#B66B92"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ambassador Article"
+    }
+  ]
+}
+{% endschema %}

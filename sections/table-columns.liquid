@@ -1,0 +1,188 @@
+{%- style -%}
+  .table-head {
+    padding: 0.5rem;
+    background: {{ section.settings.header_color }};
+    margin-bottom: 1rem;
+        border-radius: 4px;
+  }
+  .table-head h3 {
+    margin: 0;
+    padding: 1rem 0;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .table-content__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+  .table-columns {
+    width: 100%;
+    height: auto;
+  }
+
+  .table-columns__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 1px solid gray;
+    border-bottom: none;
+  }
+  .table-columns__item:last-child {
+    border-bottom: 1px solid gray;
+  }
+  .table-columns__item h5 {
+    font-size: 1.6em;
+    font-size: 1rem;
+  }
+  .table-columns__item p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.3rem;
+  }
+  .table-columns__item-title {
+    margin: 0;
+    width: 70%;
+    padding: 0.5rem;
+  }
+  .table-columns__header {
+    width: 30%;
+    background: lightgray;
+    padding: 2.5rem 0.5rem;
+    border-right: solid 1px gray;
+    height: 100%;
+  }
+  ul {
+    padding-inline-start: 0;
+  }
+
+  @media screen and (min-width: 700px) {
+    .table-columns__item h5 {
+      font-size: 1.1em;
+    }
+    .table-columns__item p {
+      font-size: 1.5rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="table-head">
+      <h3>{{ section.settings.header_text }}</h3>
+    </div>
+
+    <div class="table-content__wrapper">
+      <div>
+        {{ section.settings.help_text }}
+      </div>
+  
+      <div class="table-columns">
+        {%- for block in section.blocks -%}
+          <div class="table-columns__item">
+            <div class="table-columns__header">
+              {{ block.settings.title }}
+            </div>
+            <div class="table-columns__item-title">
+              {{ block.settings.description }}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Table Columns",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header_text",
+      "label": "代金引換",
+      "default": "代金引換"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Header Color",
+      "default": "#0000FF"
+    },
+    {
+      "type": "richtext",
+      "id": "help_text",
+      "label": "代金引換",
+      "default": "<ul><li>・代金引換手数料はお客様のご負担とさせていただきます。</li><li>・代金は商品配送時に配送員にお支払ください。</li><li>・代金引換の場合は、ご請求先とお届け先を必ず一致させていただきますようお願いします。</li></ul>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "name": "table colums",
+      "type": "table",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "商品代金以外の必要料金"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>支払方法や配送方法によって、所定の手数料や送料が必要になる場合があります。お支払い方法および、配送方法をご確認ください。</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Table Columns"
+    }
+  ]
+}
+{% endschema %}

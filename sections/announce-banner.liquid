@@ -1,0 +1,60 @@
+
+<div class="tw-relative tw-w-full tw-bg-gray-50 tw-px-6 tw-py-2.5 sm:tw-px-3.5 ">
+    <div class="tw-flex tw-flex-wrap !tw-w-full tw-justify-center tw-items-center tw-gap-x-4 tw-gap-y-2">
+        <p class="tw-text-lg tw-leading-6 tw-text-gray-900">
+        <strong class="tw-font-semibold">{{ section.settings.title }}</strong><svg viewBox="0 0 2 2" class="tw-mx-2 tw-inline tw-h-0.5 tw-w-0.5 tw-fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>{{ section.settings.heading }}
+        </p>
+        <a href="{{ section.settings.btn_link }}" class="tw-flex tw-items-center tw-gap-x-1 tw-h-8 tw-rounded-full tw-bg-gradient-to-r tw-text-lg tw-from-yellow-500 tw-to-yellow-400 tw-px-5 tw-py-0.5 tw-font-semibold tw-text-white tw-shadow-sm hover:tw-bg-gray-700 focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-2 focus-visible:tw-outline-gray-900"><p class="tw-transform -tw-translate-y-0.5">{{ section.settings.btn_text }}</p><span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="tw-absolute tw-right-2 tw-top-2">
+      <button onclick="this.parentElement.parentElement.remove()">
+        <span class="tw-sr-only">Close</span>
+        <svg class="tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+</div>
+  
+{% schema %}
+    {
+      "name": "AnnounceBanner",
+      "class": "announce-banner",
+      "enabled_on": {
+        "groups": ["header"]
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "GeneriCon 2023"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Join us in Denver from June 7 – 9 to see what’s coming next."
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Register now"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+
+      ],
+      "presets": [
+        {
+          "name": "AnnounceBanner"
+         
+        }
+      ]
+    }
+    {% endschema %}
+    

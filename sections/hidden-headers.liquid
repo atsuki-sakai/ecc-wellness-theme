@@ -1,0 +1,24 @@
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header-wrapper');
+    const announceBanner = document.querySelector('.announce-banner');
+
+    header.style.display = 'none';
+    announceBanner.style.display = 'none';
+  });
+</script>
+
+
+{% schema %}
+  {
+    "name": "Hidden Headers",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Hidden Headers"
+      }
+    ]
+  }
+{% endschema %}

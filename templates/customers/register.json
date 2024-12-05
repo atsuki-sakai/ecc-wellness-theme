@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "rich_text_MrkJDa": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4pMftw": {
+          "type": "heading",
+          "settings": {
+            "heading": "アカウント登録",
+            "heading_size": "h1"
+          }
+        },
+        "text_HVcKzn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>アカウントを作成すると次回から住所やお支払い情報の入力が不要になり、スムーズにお買い物を楽しめます。さらに、購入履歴の確認やお気に入り商品の管理も簡単に！ぜひこの機会にご登録ください。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4pMftw",
+        "text_HVcKzn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-register",
+      "custom_css": [
+        "h1 {display: none;}"
+      ],
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "rich_text_MrkJDa",
+    "main"
+  ]
+}

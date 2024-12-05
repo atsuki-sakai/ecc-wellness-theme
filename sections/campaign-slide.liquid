@@ -1,0 +1,270 @@
+{% style %}
+  .campaign-features {
+    margin: 3rem 0;
+    width: 100%;
+  }
+  .campaign-features__inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 1rem;
+  }
+  .campaign-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  .campaign-feature__item {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+  }
+
+  .campaign-feature__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .campaign-feature__content {
+    padding: 1rem;
+  }
+  .campaign-feature__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .campaign-feature__tag {
+    font-size: 11px;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: white;
+  }
+  .campaign-feature__desc {
+    font-size: 1.5rem;
+    color: #1F1F1FFF;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .campaign-feature__date {
+    font-size: 12px;
+    color: #666;
+  }
+  .campaign-features__view-more {
+    margin-top: 2rem;
+    text-align: right;
+  }
+  .campaign-features__view-more a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  .campaign-features__view-more a:hover {
+    background-color: #e0e0e0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .campaign-features__grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1rem;
+    }
+    .campaign-feature__item {
+      flex: 0 0 80%;
+      scroll-snap-align: start;
+      margin-right: 20px;
+      max-width: 250px;
+    }
+    .campaign-feature__item:last-child {
+      margin-right: 0;
+    }
+    /* スクロールバーのスタイリング */
+    .campaign-features__grid::-webkit-scrollbar {
+      height: 4px;
+    }
+    .campaign-features__grid::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 2px;
+    }
+    .campaign-features__grid::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+{% endstyle %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="campaign-features section-{{ section.id }}-padding">
+    <div class="campaign-features__inner">
+      <div class="campaign-features__grid">
+        {% for block in section.blocks limit: 3 %}
+          <a
+            {% if block.settings.link != blank %}
+              href="{{ block.settings.link }}"
+            {% endif %}
+            class="campaign-feature__item tw-transition-all tw-duration-500 hover:tw-translate-y-[-4px]"
+          >
+            {% if block.settings['image-jp'] %}
+              <img
+                class="campaign-feature__img"
+                src="{{ block.settings.image-jp | image_url: width: 1000 }}"
+                alt="{{ block.settings.description | strip_html }}"
+                width="1000"
+                height="675"
+                loading="lazy"
+              >
+            {% else %}
+              <img
+                class="campaign-feature__img"
+                src="https://via.placeholder.com/400x225"
+                alt="Placeholder"
+                width="400"
+                height="225"
+                loading="lazy"
+              >
+            {% endif %}
+            <div class="campaign-feature__content">
+              <div class="campaign-feature__tags">
+                {% assign tags = block.settings.tags | split: ',' %}
+                {% assign colors = block.settings.colors | split: ',' %}
+                {% for tag in tags %}
+                  <span
+                    class="campaign-feature__tag"
+                    style="background-color: {{ colors[forloop.index0] | default: '#000' }};"
+                  >
+                    {{ tag | strip }}
+                  </span>
+                {% endfor %}
+              </div>
+              <p class="campaign-feature__desc">{{ block.settings.description | strip_html }}</p>
+              <!-- <span class="campaign-feature__date">{{ block.settings.postdate }}</span> -->
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "キャンペーン・特集",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "キャンペーン・特集",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "最新のキャンペーンや特集をチェック",
+      "label": "サブタイトル"
+    },
+    {
+      "type": "url",
+      "id": "viewmore",
+      "label": "View More リンク"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "キャンペーン・特集アイテム",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image-jp",
+          "label": "画像"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "tags",
+          "label": "タグ",
+          "default": "10%OFF,定期便",
+          "info": "カンマで区切って入力してください（最大3つ）"
+        },
+        {
+          "type": "text",
+          "id": "colors",
+          "label": "タグの色",
+          "default": "#f39700,#6495ed",
+          "info": "HEXカラーコードをカンマで区切って入力してください"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "説明",
+          "default": "美肌をキープ！今なら化粧品定期便初回50%オフキャンペーン"
+        },
+        {
+          "type": "text",
+          "id": "postdate",
+          "label": "投稿日",
+          "default": "2024/06/3 (月曜日)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "キャンペーン・特集",
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

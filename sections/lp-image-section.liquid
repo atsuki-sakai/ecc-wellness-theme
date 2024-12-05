@@ -1,0 +1,38 @@
+<style>
+  .lp-image-section {
+    width: 100%;
+    padding:0;
+    margin: 0;
+    height:auto;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .lp-img {
+    object-fit:cover;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+<div class="lp-image-section">
+  <img src="{{ section.settings.image.src | img_url: "master" }}}" class="lp-img" alt="image" />
+</div>
+
+{% schema %}
+  {
+    "name": "LP Image Section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image",
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Image Section"
+      }
+    ]
+    
+  }
+{% endschema %}

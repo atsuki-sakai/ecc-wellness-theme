@@ -1,0 +1,56 @@
+<style>
+  .product {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
+    pointer-events: none;
+  }
+  .product.staff-visible {
+    filter: blur(0);
+    pointer-events: auto;
+  }
+  .help-text {
+    text-align: center;
+    margin: 3rem;
+    color: red;
+  }
+</style>
+
+{% if customer %}
+  {% if customer.tags contains "ECCスタッフ・役員" %}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const product = document.getElementsByClassName('product')[0];
+        if (product) {
+          product.classList.add('staff-visible');
+          const helpText = document.getElementById('hidden-text');
+          if (helpText) {
+            helpText.style.display = "none";
+          }
+        }
+      });
+    </script>
+  {% endif %}
+{% endif %}
+
+<div id="hidden-text" class="help-text">
+  {{ section.settings.help-text }}
+</div>
+
+{% schema %}
+  {
+    "name": "Hidden SheetMask Script",
+    "settings": [
+      {
+        "type": "text",
+        "id": "help-text",
+        "label": "Help Text",
+        "default": "この商品は一般販売されていません。"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hidden SheetMask Script"
+      }
+    ]
+  }
+{% endschema %}

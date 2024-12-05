@@ -1,0 +1,67 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announce_banner_JryKDp": {
+      "type": "announce-banner",
+      "custom_css": [],
+      "settings": {
+        "title": "ELARA100 トーニングシートマスク",
+        "heading": "ECCが長年研究を続けるエラスチンを配合したシートマスクが新発売！",
+        "btn_text": "商品ページへ",
+        "btn_link": "shopify:\/\/products\/elara100-torning-sheetmask-7v"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "banner_UagMfP": {
+          "type": "banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/ELARA100-banner_b4b1d77e-1c72-47a7-82be-8584833915d3.jpg",
+            "url": "shopify:\/\/products\/elara100-torning-sheetmask-7v"
+          }
+        },
+        "banner_ALzfQk": {
+          "type": "banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/banner-amb.png",
+            "url": "shopify:\/\/pages\/contact"
+          }
+        },
+        "banner_wkcUBC": {
+          "type": "banner",
+          "settings": {
+            "banner": "shopify:\/\/shop_images\/banner-column.png",
+            "url": "shopify:\/\/blogs\/コラム"
+          }
+        }
+      },
+      "block_order": [
+        "banner_UagMfP",
+        "banner_ALzfQk",
+        "banner_wkcUBC"
+      ],
+      "custom_css": [],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "announce_banner_JryKDp",
+    "header"
+  ]
+}
