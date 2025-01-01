@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "is_debug": false,
-    "logo": "shopify:\/\/shop_images\/eccwellness_logo_tate01.png",
+    "logo": "shopify://shop_images/eccwellness_logo_tate01.png",
     "logo_width": 90,
-    "favicon": "shopify:\/\/shop_images\/eccwellness_logo_tate01.png",
+    "favicon": "shopify://shop_images/eccwellness_logo_tate01.png",
     "type_header_font": "zen_kaku_gothic_new_n4",
     "heading_scale": 100,
     "type_body_font": "zen_kaku_gothic_new_n4",
@@ -100,11 +109,11 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "",
-    "brand_description": "<p>科学的根拠に基づき、かつ私たちが身をもって良いと実感したものにこだわって提供しております。<\/p><p>原料の一つ一つ、品質、加工、検査を徹底管理し、JHFAの認証を受けるなど、皆様にずっとお使いいただける、安全で高品質な製品づくりを常に心がけております。<\/p>",
-    "brand_image": "shopify:\/\/shop_images\/eccwellness_logo_tate01.png",
+    "brand_description": "<p>科学的根拠に基づき、かつ私たちが身をもって良いと実感したものにこだわって提供しております。</p><p>原料の一つ一つ、品質、加工、検査を徹底管理し、JHFAの認証を受けるなど、皆様にずっとお使いいただける、安全で高品質な製品づくりを常に心がけております。</p>",
+    "brand_image": "shopify://shop_images/eccwellness_logo_tate01.png",
     "brand_image_width": 100,
     "social_facebook_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/ecc_wellness\/",
+    "social_instagram_link": "https://www.instagram.com/ecc_wellness/",
     "social_youtube_link": "",
     "social_tiktok_link": "",
     "social_twitter_link": "",
@@ -137,33 +146,23 @@
     },
     "content_for_index": [],
     "blocks": {
-      "15399298802885521802": {
-        "type": "shopify:\/\/apps\/table-of-contents\/blocks\/app-embed\/d06f5754-affb-4dc7-a2a9-18d74d225f70",
-        "disabled": false,
-        "settings": {}
-      },
       "9513407616245537438": {
-        "type": "shopify:\/\/apps\/sami-wholesale\/blocks\/app-embed-block\/799b9db0-2c2b-4b20-8675-98acd123fbb2",
-        "disabled": false,
-        "settings": {}
-      },
-      "1232542678405107163": {
-        "type": "shopify:\/\/apps\/instafeed\/blocks\/head-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+        "type": "shopify://apps/sami-wholesale/blocks/app-embed-block/799b9db0-2c2b-4b20-8675-98acd123fbb2",
         "disabled": false,
         "settings": {}
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
       "11242429557760608184": {
-        "type": "shopify:\/\/apps\/referrly\/blocks\/main-app-embed\/75b5ccd5-af90-4f81-ab89-2c28499171fd",
+        "type": "shopify://apps/referrly/blocks/main-app-embed/75b5ccd5-af90-4f81-ab89-2c28499171fd",
         "disabled": false,
         "settings": {}
       },
       "16708967755049394968": {
-        "type": "shopify:\/\/apps\/ship-co\/blocks\/delivery-selector-app-embed\/540824e2-2138-4dc6-9757-56670db20341",
+        "type": "shopify://apps/ship-co/blocks/delivery-selector-app-embed/540824e2-2138-4dc6-9757-56670db20341",
         "disabled": false,
         "settings": {
           "custom_text": "",
@@ -187,7 +186,7 @@
         }
       },
       "15683396631634586217": {
-        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
           "button_color": "#f39f64",
@@ -199,6 +198,11 @@
           "button_vertical_position": "lowest",
           "greeting_message": "ご質問等ございましたら、メッセージを送信してください。私たちが喜んでサポートいたします。"
         }
+      },
+      "12218997094224532296": {
+        "type": "shopify://apps/saleperson-app/blocks/saleperson-widget/d214e594-4ab0-42fa-a1f2-a7f857445c65",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
@@ -426,7 +430,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
