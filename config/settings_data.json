@@ -185,9 +185,14 @@
           "input_border_color": "#e3e3e3"
         }
       },
+      "12218997094224532296": {
+        "type": "shopify://apps/saleperson-app/blocks/saleperson-widget/d214e594-4ab0-42fa-a1f2-a7f857445c65",
+        "disabled": false,
+        "settings": {}
+      },
       "15683396631634586217": {
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "button_color": "#f39f64",
           "secondary_color": "#ffffff",
@@ -198,11 +203,6 @@
           "button_vertical_position": "lowest",
           "greeting_message": "ご質問等ございましたら、メッセージを送信してください。私たちが喜んでサポートいたします。"
         }
-      },
-      "12218997094224532296": {
-        "type": "shopify://apps/saleperson-app/blocks/saleperson-widget/d214e594-4ab0-42fa-a1f2-a7f857445c65",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
